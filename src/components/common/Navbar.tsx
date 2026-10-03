@@ -6,6 +6,7 @@ import {
   ArrowUpRight, 
   Sparkles 
 } from 'lucide-react';
+import { CONTACT_CONFIG } from '../../config/contact';
 
 interface NavbarProps {
   currentPage: string;
@@ -63,8 +64,8 @@ export const Navbar: React.FC<NavbarProps> = ({
       <header 
         className={`fixed top-0 left-0 right-0 z-40 transition-all duration-300 ${
           isScrolled 
-            ? 'bg-[#090C22]/85 backdrop-blur-xl border-b border-white/10 shadow-2xl shadow-indigo-950/40 py-3' 
-            : 'bg-transparent py-5'
+            ? 'bg-[#080E24]/95 backdrop-blur-2xl border-b border-[#00D4FF]/35 shadow-[0_10px_35px_rgba(8,14,36,0.35)] py-2.5' 
+            : 'bg-[#0A122E]/90 backdrop-blur-xl border-b border-white/10 shadow-[0_4px_25px_rgba(8,14,36,0.2)] py-3'
         }`}
       >
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -72,10 +73,10 @@ export const Navbar: React.FC<NavbarProps> = ({
             {/* Logo with Rainbow Badge */}
             <div 
               onClick={() => handleNavClick('home')} 
-              className="cursor-pointer group flex items-center space-x-3"
+              className="cursor-pointer group flex items-center space-x-2.5"
             >
-              <div className="w-11 h-11 rounded-2xl bg-gradient-to-br from-[#FF2E93] via-[#FFDE00] via-[#00E575] to-[#00D4FF] p-[2px] transition-transform duration-300 group-hover:scale-105 shadow-lg shadow-pink-500/20 overflow-hidden">
-                <div className="w-full h-full bg-white rounded-[14px] flex items-center justify-center overflow-hidden p-0.5">
+              <div className="w-8 h-8 sm:w-9 sm:h-9 rounded-xl bg-gradient-to-br from-[#FF2E93] via-[#FFDE00] to-[#00D4FF] p-[1.5px] transition-transform duration-300 group-hover:scale-105 shadow-sm overflow-hidden flex-shrink-0">
+                <div className="w-full h-full bg-white rounded-[10px] flex items-center justify-center overflow-hidden p-0.5">
                   <img 
                     src="/logo.jpg" 
                     alt="Pillow Digital Logo" 
@@ -84,56 +85,53 @@ export const Navbar: React.FC<NavbarProps> = ({
                 </div>
               </div>
               <div className="flex flex-col">
-                <span className="font-black tracking-wider text-white text-lg group-hover:text-gradient-rainbow transition-colors flex items-center">
+                <span className="font-black tracking-wide text-white text-sm sm:text-base group-hover:text-gradient-rainbow transition-colors flex items-center leading-tight">
                   PILLOW <span className="text-[#00D4FF] ml-1">DIGITAL</span>
                 </span>
-                <span className="text-[10px] tracking-widest text-slate-300 font-extrabold uppercase flex items-center">
-                  BY <span className="text-white ml-1 font-extrabold">R GROUP</span>
+                <span className="text-[9px] tracking-wider text-slate-300 font-extrabold uppercase leading-tight">
+                  BY <span className="text-white font-extrabold">R GROUP</span>
                 </span>
               </div>
             </div>
 
-            {/* Desktop Navigation Links */}
-            <nav className="hidden md:flex items-center space-x-1 lg:space-x-2 glass-sapphire rounded-full px-4 py-1.5 border border-white/15 shadow-inner">
-              {navLinks.map((link) => (
-                <button
-                  key={link.id}
-                  onClick={() => handleNavClick(link.id)}
-                  className={`px-3.5 py-1.5 rounded-full text-xs lg:text-sm font-bold transition-all duration-200 ${
-                    currentPage === link.id
-                      ? 'bg-gradient-to-r from-[#FF2E93]/20 via-[#00D4FF]/20 to-[#00E575]/20 text-[#00D4FF] border border-[#00D4FF]/40 shadow-sm'
-                      : 'text-slate-300 hover:text-white hover:bg-white/10'
-                  }`}
-                >
-                  {link.label}
-                </button>
-              ))}
+            {/* Desktop Navigation Links - Compact Sleek Pill */}
+            <nav className="hidden md:flex items-center space-x-0.5 bg-white/10 backdrop-blur-md rounded-full p-1 border border-white/15 shadow-inner">
+              {navLinks.map((link) => {
+                const isActive = currentPage === link.id;
+                return (
+                  <button
+                    key={link.id}
+                    onClick={() => handleNavClick(link.id)}
+                    className={`px-3 py-1.5 rounded-full text-xs font-semibold transition-all duration-200 ${
+                      isActive
+                        ? 'bg-white text-slate-950 font-black shadow-md'
+                        : 'text-slate-200 hover:text-white hover:bg-white/10'
+                    }`}
+                  >
+                    {link.label}
+                  </button>
+                );
+              })}
             </nav>
 
-            {/* Action Buttons */}
-            <div className="hidden md:flex items-center space-x-3">
-
-
+            {/* Action Buttons - Simple, Clean & Awesome */}
+            <div className="hidden md:flex items-center space-x-2">
               <a 
-                href="https://wa.me/919999999999?text=Hi%20A.%20Raghul,%20I%20want%20to%20get%20quality%20leads%20for%20my%20business%20through%20Pillow%20Digital."
+                href={CONTACT_CONFIG.getWhatsAppUrl("Hi A. Raghul, I want to get quality leads for my business through Pillow Digital.")}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="hidden lg:inline-flex items-center space-x-1.5 px-3.5 py-2 rounded-xl text-xs font-bold text-emerald-300 border border-emerald-500/40 bg-emerald-950/40 hover:bg-emerald-900/50 shadow-sm transition-all"
+                className="hidden lg:inline-flex items-center space-x-1.5 px-3 py-1.5 rounded-full text-xs font-bold text-emerald-300 border border-emerald-500/40 bg-emerald-500/15 hover:bg-emerald-500/25 transition-all shadow-sm"
               >
-                <span className="w-2 h-2 rounded-full bg-emerald-400 animate-ping inline-block mr-1" />
+                <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse" />
                 <span>WhatsApp Live</span>
               </a>
 
               <button
                 onClick={openLeadModal}
-                className="relative inline-flex items-center justify-center p-[2px] overflow-hidden rounded-xl font-bold group transition-all duration-300 hover:scale-105 active:scale-95 shadow-xl shadow-pink-500/20"
+                className="px-4 py-1.5 rounded-full text-xs font-black bg-gradient-to-r from-[#FF2E93] via-[#FF8A00] to-[#00D4FF] text-black shadow-sm shadow-pink-500/20 hover:scale-105 active:scale-95 transition-all flex items-center space-x-1"
               >
-                <span className="w-full h-full bg-gradient-to-r from-[#FF2E93] via-[#FF8A00] via-[#FFDE00] via-[#00E575] via-[#00D4FF] to-[#845EC2] absolute"></span>
-                <span className="relative px-4 py-2 transition-all ease-out bg-[#07091B] rounded-[10px] group-hover:bg-opacity-0 text-white group-hover:text-black font-extrabold text-xs lg:text-sm flex items-center space-x-1.5">
-                  <Sparkles className="w-4 h-4 text-[#FFDE00] group-hover:text-black" />
-                  <span>Get Daily Leads</span>
-                  <ArrowUpRight className="w-4 h-4" />
-                </span>
+                <span>Get Daily Leads</span>
+                <ArrowUpRight className="w-3.5 h-3.5 text-black" />
               </button>
             </div>
 
@@ -141,16 +139,16 @@ export const Navbar: React.FC<NavbarProps> = ({
             <div className="flex md:hidden items-center space-x-2">
               <button
                 onClick={openLeadModal}
-                className="px-3 py-1.5 bg-gradient-to-r from-[#FF2E93] to-[#00D4FF] text-black font-extrabold text-xs rounded-lg"
+                className="px-3 py-1 bg-gradient-to-r from-[#FF2E93] to-[#00D4FF] text-black font-black text-xs rounded-full shadow-sm"
               >
-                Enquire
+                Leads
               </button>
               <button
                 onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-                className="p-2 text-slate-300 hover:text-white rounded-lg glass-sapphire focus:outline-none"
+                className="p-1.5 text-white hover:text-[#00D4FF] rounded-lg bg-white/10 border border-white/15 focus:outline-none"
                 aria-label="Toggle menu"
               >
-                {mobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
+                {mobileMenuOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
               </button>
             </div>
           </div>
@@ -158,29 +156,29 @@ export const Navbar: React.FC<NavbarProps> = ({
 
         {/* Mobile Dropdown Menu */}
         {mobileMenuOpen && (
-          <div className="md:hidden glass-sapphire border-b border-white/10 px-4 pt-3 pb-6 mt-3 space-y-2">
+          <div className="md:hidden bg-[#080E24]/98 backdrop-blur-2xl border-b border-white/10 px-4 pt-3 pb-5 mt-2 space-y-1.5 shadow-2xl">
             {navLinks.map((link) => (
               <button
                 key={link.id}
                 onClick={() => handleNavClick(link.id)}
-                className={`w-full text-left px-4 py-2.5 rounded-lg text-sm font-bold transition-all ${
+                className={`w-full text-left px-3.5 py-2 rounded-lg text-xs font-bold transition-all ${
                   currentPage === link.id
-                    ? 'bg-gradient-to-r from-[#FF2E93]/20 to-[#00D4FF]/20 text-[#00D4FF] border-l-4 border-[#00D4FF]'
-                    : 'text-slate-300 hover:text-white hover:bg-white/10'
+                    ? 'bg-white/15 text-white font-extrabold border-l-4 border-[#00D4FF]'
+                    : 'text-slate-300 hover:text-white hover:bg-white/5'
                 }`}
               >
                 {link.label}
               </button>
             ))}
-            <div className="pt-3 border-t border-white/10 space-y-2">
+            <div className="pt-2 border-t border-white/10 space-y-2">
               <button
                 onClick={() => {
                   setMobileMenuOpen(false);
                   openLeadModal();
                 }}
-                className="w-full py-2.5 px-4 bg-gradient-to-r from-[#FF2E93] via-[#FFDE00] to-[#00D4FF] text-black font-black text-sm rounded-lg flex items-center justify-center space-x-2 shadow-lg"
+                className="w-full py-2 px-4 bg-gradient-to-r from-[#FF2E93] via-[#FFDE00] to-[#00D4FF] text-black font-black text-xs rounded-full flex items-center justify-center space-x-1.5 shadow-sm"
               >
-                <Sparkles className="w-4 h-4" />
+                <Sparkles className="w-3.5 h-3.5" />
                 <span>Launch Campaign (Get Daily Leads)</span>
               </button>
             </div>

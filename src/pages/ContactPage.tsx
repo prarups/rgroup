@@ -9,6 +9,7 @@ import {
   ShieldCheck,
   Globe
 } from 'lucide-react';
+import { CONTACT_CONFIG } from '../config/contact';
 
 export const ContactPage: React.FC = () => {
   useScrollReveal();
@@ -25,16 +26,16 @@ export const ContactPage: React.FC = () => {
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
 
-    const formattedMessage = `🚀 *CONSULTATION REQUEST - PILLOW DIGITAL*%0A%0A` +
-      `*Client Name:* ${encodeURIComponent(name)}%0A` +
-      `*Business Name:* ${encodeURIComponent(businessName)}%0A` +
-      `*Phone:* ${encodeURIComponent(phone)}%0A` +
-      `*Service Required:* ${encodeURIComponent(service)}%0A` +
-      `*Monthly Ad Budget:* ${encodeURIComponent(budget)}%0A` +
-      `*Notes:* ${encodeURIComponent(notes || 'None')}%0A%0A` +
+    const formattedMessage = `🚀 *CONSULTATION REQUEST - PILLOW DIGITAL*\n\n` +
+      `*Client Name:* ${name}\n` +
+      `*Business Name:* ${businessName}\n` +
+      `*Phone:* ${phone}\n` +
+      `*Service Required:* ${service}\n` +
+      `*Monthly Ad Budget:* ${budget}\n` +
+      `*Notes:* ${notes || 'None'}\n\n` +
       `_Hi A. Raghul, I would like to discuss my lead generation campaign._`;
 
-    const whatsappUrl = `https://wa.me/919999999999?text=${formattedMessage}`;
+    const whatsappUrl = CONTACT_CONFIG.getWhatsAppUrl(formattedMessage);
     window.open(whatsappUrl, '_blank');
   };
 
@@ -62,27 +63,27 @@ export const ContactPage: React.FC = () => {
   ];
 
   return (
-    <div className="min-h-screen pt-28 pb-20 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
+    <div className="min-h-screen pt-20 sm:pt-24 pb-14 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
       {/* Header */}
-      <div className="scroll-reveal text-center max-w-3xl mx-auto space-y-4 mb-16">
-        <span className="text-xs font-black uppercase tracking-widest text-[#00F0FF]">
+      <div className="scroll-reveal text-center max-w-3xl mx-auto space-y-3 mb-8 sm:mb-10">
+        <span className="text-xs font-black uppercase tracking-widest text-[#0090FF]">
           CONNECT WITH A. RAGHUL
         </span>
-        <h1 className="text-4xl sm:text-6xl font-black text-white tracking-tight">
-          Let’s Grow Your <span className="text-gradient-aurora">Business</span>
+        <h1 className="text-3xl sm:text-5xl font-black text-slate-900 tracking-tight">
+          Let’s Grow Your <span className="text-gradient-rainbow">Business</span>
         </h1>
-        <p className="text-indigo-200 text-base sm:text-lg">
+        <p className="text-slate-600 text-sm sm:text-base">
           Fill out the lead enquiry form below or message directly on WhatsApp to start generating consistent customer inquiries.
         </p>
       </div>
 
-      <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 max-w-6xl mx-auto mb-20">
+      <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-10 max-w-6xl mx-auto mb-12 sm:mb-16">
         
         {/* Left Form */}
-        <div className="scroll-reveal-left lg:col-span-7 glass-sapphire-glow p-5 sm:p-10 rounded-2xl sm:rounded-3xl border border-[#00F0FF]/40 space-y-5 sm:space-y-6 shadow-2xl">
+        <div className="scroll-reveal-left lg:col-span-7 bg-white p-5 sm:p-10 rounded-2xl sm:rounded-3xl border border-slate-200 space-y-5 sm:space-y-6 shadow-xl">
           <div className="space-y-1">
-            <h2 className="text-2xl font-black text-white">Book Growth Consultation</h2>
-            <p className="text-xs text-indigo-200">
+            <h2 className="text-2xl font-black text-slate-900">Book Growth Consultation</h2>
+            <p className="text-xs text-slate-600">
               Submit your inquiry to automatically route details to Founder A. Raghul via WhatsApp.
             </p>
           </div>
@@ -90,7 +91,7 @@ export const ContactPage: React.FC = () => {
           <form onSubmit={handleSubmit} className="space-y-4">
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
               <div>
-                <label className="block text-xs font-black text-indigo-200 uppercase tracking-wider mb-1.5">
+                <label className="block text-xs font-black text-slate-700 uppercase tracking-wider mb-1.5">
                   Your Name *
                 </label>
                 <input
@@ -99,12 +100,12 @@ export const ContactPage: React.FC = () => {
                   value={name}
                   onChange={(e) => setName(e.target.value)}
                   placeholder="Full Name"
-                  className="w-full px-4 py-3 rounded-xl bg-white/10 border border-white/15 text-white placeholder-indigo-300/60 focus:outline-none focus:border-[#00F0FF] text-sm"
+                  className="w-full px-4 py-3 rounded-xl bg-slate-50 border border-slate-300 text-slate-900 placeholder-slate-400 focus:outline-none focus:bg-white focus:border-[#00D4FF] text-sm"
                 />
               </div>
 
               <div>
-                <label className="block text-xs font-black text-indigo-200 uppercase tracking-wider mb-1.5">
+                <label className="block text-xs font-black text-slate-700 uppercase tracking-wider mb-1.5">
                   Business Name *
                 </label>
                 <input
@@ -113,14 +114,14 @@ export const ContactPage: React.FC = () => {
                   value={businessName}
                   onChange={(e) => setBusinessName(e.target.value)}
                   placeholder="Company / Brand"
-                  className="w-full px-4 py-3 rounded-xl bg-white/10 border border-white/15 text-white placeholder-indigo-300/60 focus:outline-none focus:border-[#00F0FF] text-sm"
+                  className="w-full px-4 py-3 rounded-xl bg-slate-50 border border-slate-300 text-slate-900 placeholder-slate-400 focus:outline-none focus:bg-white focus:border-[#00D4FF] text-sm"
                 />
               </div>
             </div>
 
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
               <div>
-                <label className="block text-xs font-black text-indigo-200 uppercase tracking-wider mb-1.5">
+                <label className="block text-xs font-black text-slate-700 uppercase tracking-wider mb-1.5">
                   WhatsApp Number *
                 </label>
                 <input
@@ -129,18 +130,18 @@ export const ContactPage: React.FC = () => {
                   value={phone}
                   onChange={(e) => setPhone(e.target.value)}
                   placeholder="+91 98765 43210"
-                  className="w-full px-4 py-3 rounded-xl bg-white/10 border border-white/15 text-white placeholder-indigo-300/60 focus:outline-none focus:border-[#00F0FF] text-sm"
+                  className="w-full px-4 py-3 rounded-xl bg-slate-50 border border-slate-300 text-slate-900 placeholder-slate-400 focus:outline-none focus:bg-white focus:border-[#00D4FF] text-sm"
                 />
               </div>
 
               <div>
-                <label className="block text-xs font-black text-indigo-200 uppercase tracking-wider mb-1.5">
+                <label className="block text-xs font-black text-slate-700 uppercase tracking-wider mb-1.5">
                   Primary Service
                 </label>
                 <select
                   value={service}
                   onChange={(e) => setService(e.target.value)}
-                  className="w-full px-4 py-3 rounded-xl bg-[#0F163D] border border-white/15 text-white focus:outline-none focus:border-[#00F0FF] text-sm"
+                  className="w-full px-4 py-3 rounded-xl bg-slate-50 border border-slate-300 text-slate-900 focus:outline-none focus:bg-white focus:border-[#00D4FF] text-sm"
                 >
                   <option value="Daily WhatsApp Leads">Daily WhatsApp Leads</option>
                   <option value="Targeted Lead Generation">Targeted Lead Generation</option>
@@ -154,13 +155,13 @@ export const ContactPage: React.FC = () => {
             </div>
 
             <div>
-              <label className="block text-xs font-black text-indigo-200 uppercase tracking-wider mb-1.5">
+              <label className="block text-xs font-black text-slate-700 uppercase tracking-wider mb-1.5">
                 Monthly Advertising Budget Range
               </label>
               <select
                 value={budget}
                 onChange={(e) => setBudget(e.target.value)}
-                className="w-full px-4 py-3 rounded-xl bg-[#0F163D] border border-white/15 text-white focus:outline-none focus:border-[#00F0FF] text-sm"
+                className="w-full px-4 py-3 rounded-xl bg-slate-50 border border-slate-300 text-slate-900 focus:outline-none focus:bg-white focus:border-[#00D4FF] text-sm"
               >
                 <option value="₹20,000 - ₹30,000">₹20,000 - ₹30,000</option>
                 <option value="₹30,000 - ₹50,000">₹30,000 - ₹50,000</option>
@@ -171,7 +172,7 @@ export const ContactPage: React.FC = () => {
             </div>
 
             <div>
-              <label className="block text-xs font-black text-indigo-200 uppercase tracking-wider mb-1.5">
+              <label className="block text-xs font-black text-slate-700 uppercase tracking-wider mb-1.5">
                 Business Goals / Target Audience (Optional)
               </label>
               <textarea
@@ -179,15 +180,15 @@ export const ContactPage: React.FC = () => {
                 value={notes}
                 onChange={(e) => setNotes(e.target.value)}
                 placeholder="Tell us what you sell, your target cities/customers, or your current ad challenges..."
-                className="w-full px-4 py-3 rounded-xl bg-white/10 border border-white/15 text-white placeholder-indigo-300/60 focus:outline-none focus:border-[#00F0FF] text-sm"
+                className="w-full px-4 py-3 rounded-xl bg-slate-50 border border-slate-300 text-slate-900 placeholder-slate-400 focus:outline-none focus:bg-white focus:border-[#00D4FF] text-sm"
               />
             </div>
 
             <button
               type="submit"
-              className="w-full py-4 px-6 rounded-xl bg-gradient-to-r from-[#00F0FF] via-[#6366F1] to-[#A855F7] text-black font-black text-sm tracking-wide shadow-xl shadow-cyan-500/25 hover:brightness-110 active:scale-95 transition-all flex items-center justify-center space-x-2"
+              className="w-full py-4 px-6 rounded-xl bg-gradient-to-r from-[#00D4FF] via-[#6366F1] to-[#A855F7] text-white font-black text-sm tracking-wide shadow-lg shadow-cyan-500/25 hover:brightness-110 active:scale-95 transition-all flex items-center justify-center space-x-2"
             >
-              <Send className="w-4 h-4" />
+              <Send className="w-4 h-4 text-white" />
               <span>Launch Campaign Consultation via WhatsApp</span>
             </button>
           </form>
@@ -195,80 +196,80 @@ export const ContactPage: React.FC = () => {
 
         {/* Right Info Card */}
         <div className="scroll-reveal-right lg:col-span-5 space-y-6">
-          <div className="p-8 rounded-3xl glass-sapphire border border-indigo-400/30 space-y-6 shadow-xl">
-            <div className="flex items-center space-x-3.5 pb-4 border-b border-white/10">
-              <img 
-                src="/ragual.jpeg" 
-                alt="A. Raghul" 
-                className="w-14 h-16 rounded-xl object-cover object-top border-2 border-[#00D4FF] shadow-lg"
-              />
+          <div className="p-8 rounded-3xl rainbow-card space-y-6 shadow-xl border border-slate-200">
+            <div className="flex items-center space-x-3.5 pb-4 border-b border-slate-200/90">
+              <div className="relative flex-shrink-0">
+                <img 
+                  src="/ragual.png" 
+                  alt="A. Raghul" 
+                  className="w-14 h-16 rounded-xl object-cover object-top border-2 border-[#00B4D8] shadow-md shadow-cyan-500/20"
+                />
+                <span className="absolute -bottom-1 -right-1 w-3.5 h-3.5 rounded-full bg-[#00E575] border-2 border-white" />
+              </div>
               <div>
-                <h3 className="text-lg font-black text-white">A. RAGHUL</h3>
-                <p className="text-xs text-[#00D4FF] font-bold">Founder & Growth Consultant</p>
-                <p className="text-[11px] text-slate-300">Pillow Digital • R GROUP</p>
+                <h3 className="text-lg font-black text-slate-900">A. RAGHUL</h3>
+                <p className="text-xs text-[#00B4D8] font-bold">Founder & Growth Consultant</p>
+                <p className="text-[11px] text-slate-500 font-medium">Pillow Digital • R GROUP</p>
               </div>
             </div>
 
-            <h4 className="text-base font-black text-white">Direct Agency Contact</h4>
+            <h4 className="text-base font-black text-slate-900">Direct Agency Contact</h4>
 
             <div className="space-y-4">
-              <div className="flex items-start space-x-3 text-sm">
-                <div className="p-3 rounded-xl bg-emerald-500/20 text-emerald-400 border border-emerald-500/30 mt-1">
-                  <MessageCircle className="w-5 h-5" />
+              <div className="flex items-start space-x-3.5 text-sm p-3.5 rounded-2xl bg-emerald-50/70 border border-emerald-200/80 transition-all hover:bg-emerald-50">
+                <div className="p-2.5 rounded-xl bg-emerald-500 text-white shadow-md shadow-emerald-500/20 mt-0.5">
+                  <MessageCircle className="w-4 h-4" />
                 </div>
                 <div>
-                  <p className="text-xs text-indigo-300">WhatsApp Lead Direct Line</p>
+                  <p className="text-[10px] uppercase font-black tracking-wider text-emerald-800">WhatsApp Lead Direct Line</p>
                   <a 
-                    href="https://wa.me/919999999999?text=Hi%20A.%20Raghul,%20I%20am%20contacting%20you%20from%20Pillow%20Digital%20website."
+                    href={CONTACT_CONFIG.getWhatsAppUrl("Hi A. Raghul, I am contacting you from Pillow Digital website.")}
                     target="_blank"
                     rel="noreferrer"
-                    className="font-black text-white hover:text-emerald-400 transition-colors"
+                    className="font-black text-slate-900 hover:text-emerald-600 transition-colors text-sm"
                   >
-                    +91 99999 99999 (Click to Chat)
+                    {CONTACT_CONFIG.whatsappDisplay} (Click to Chat)
                   </a>
-                  <p className="text-[11px] text-indigo-300/80 mt-0.5">Instant response during business hours</p>
+                  <p className="text-[11px] text-emerald-700/80 mt-0.5 font-medium">Instant response during business hours</p>
                 </div>
               </div>
 
-              <div className="flex items-start space-x-3 text-sm">
-                <div className="p-3 rounded-xl bg-pink-500/20 text-pink-400 border border-pink-500/30 mt-1">
-                  <span className="w-5 h-5 rounded-md bg-gradient-to-tr from-amber-400 via-pink-500 to-purple-600 flex items-center justify-center text-white text-[10px] font-black">
-                    IG
-                  </span>
+              <div className="flex items-start space-x-3.5 text-sm p-3.5 rounded-2xl bg-pink-50/70 border border-pink-200/80 transition-all hover:bg-pink-50">
+                <div className="w-9 h-9 rounded-xl bg-gradient-to-tr from-amber-400 via-pink-500 to-purple-600 flex items-center justify-center text-white text-xs font-black shadow-md shadow-pink-500/20 mt-0.5">
+                  IG
                 </div>
                 <div>
-                  <p className="text-xs text-indigo-300">Official Instagram</p>
+                  <p className="text-[10px] uppercase font-black tracking-wider text-pink-800">Official Instagram</p>
                   <a 
                     href="https://www.instagram.com/pillow_digital" 
                     target="_blank" 
                     rel="noreferrer"
-                    className="font-black text-pink-300 hover:text-pink-200 transition-colors"
+                    className="font-black text-pink-600 hover:text-pink-700 transition-colors text-sm"
                   >
                     @pillow_digital (DM or Follow)
                   </a>
-                  <p className="text-[11px] text-indigo-300/80 mt-0.5">Daily reels, ad shoots & client results</p>
+                  <p className="text-[11px] text-pink-700/80 mt-0.5 font-medium">Daily reels, ad shoots & client results</p>
                 </div>
               </div>
 
-
               <div className="flex items-start space-x-3 text-sm">
-                <div className="p-3 rounded-xl bg-purple-500/20 text-[#A855F7] border border-purple-500/30 mt-1">
+                <div className="p-3 rounded-xl bg-purple-50 text-[#845EC2] border border-purple-200 mt-1">
                   <Clock className="w-5 h-5" />
                 </div>
                 <div>
-                  <p className="text-xs text-indigo-300">Operating Hours</p>
-                  <p className="font-bold text-white">Monday – Saturday: 9:30 AM – 7:30 PM</p>
-                  <p className="text-[11px] text-indigo-300/80 mt-0.5">Campaign monitoring active 24/7</p>
+                  <p className="text-xs text-slate-500">Operating Hours</p>
+                  <p className="font-bold text-slate-800">Monday – Saturday: 9:30 AM – 7:30 PM</p>
+                  <p className="text-[11px] text-slate-500 mt-0.5">Campaign monitoring active 24/7</p>
                 </div>
               </div>
             </div>
 
-            <div className="p-4 rounded-2xl bg-white/10 border border-white/10 space-y-2">
-              <div className="flex items-center space-x-2 text-xs font-black text-emerald-400">
+            <div className="p-4 rounded-2xl bg-slate-50 border border-slate-200 space-y-2">
+              <div className="flex items-center space-x-2 text-xs font-black text-emerald-600">
                 <ShieldCheck className="w-4 h-4" />
                 <span>Zero Wasted Ad Spend</span>
               </div>
-              <p className="text-xs text-indigo-200 leading-relaxed">
+              <p className="text-xs text-slate-600 leading-relaxed">
                 Every campaign is personally audited by A. Raghul (4+ Years Experience, 100+ Clients Handled) before launching.
               </p>
             </div>
@@ -280,10 +281,10 @@ export const ContactPage: React.FC = () => {
       {/* Frequently Asked Questions with Scroll Reveal */}
       <div className="scroll-reveal max-w-4xl mx-auto pt-8">
         <div className="text-center space-y-2 mb-10">
-          <h3 className="text-2xl sm:text-3xl font-black text-white">
+          <h3 className="text-2xl sm:text-3xl font-black text-slate-900">
             Frequently Asked Questions
           </h3>
-          <p className="text-xs sm:text-sm text-indigo-200">
+          <p className="text-xs sm:text-sm text-slate-600">
             Everything you need to know before onboarding with Pillow Digital
           </p>
         </div>
@@ -292,21 +293,21 @@ export const ContactPage: React.FC = () => {
           {faqs.map((faq, idx) => (
             <div
               key={idx}
-              className="p-5 rounded-2xl glass-sapphire border border-indigo-400/20 transition-all cursor-pointer tilt-card"
+              className="p-5 rounded-2xl bg-white border border-slate-200 transition-all cursor-pointer tilt-card shadow-sm"
               onClick={() => setActiveFaq(activeFaq === idx ? null : idx)}
             >
               <div className="flex items-center justify-between">
-                <h4 className="text-sm sm:text-base font-bold text-white">
+                <h4 className="text-sm sm:text-base font-bold text-slate-900">
                   {faq.q}
                 </h4>
                 {activeFaq === idx ? (
-                  <ChevronUp className="w-4 h-4 text-[#00F0FF] flex-shrink-0" />
+                  <ChevronUp className="w-4 h-4 text-[#00B4D8] flex-shrink-0" />
                 ) : (
-                  <ChevronDown className="w-4 h-4 text-indigo-300 flex-shrink-0" />
+                  <ChevronDown className="w-4 h-4 text-slate-500 flex-shrink-0" />
                 )}
               </div>
               {activeFaq === idx && (
-                <p className="text-xs sm:text-sm text-indigo-100 mt-3 pt-3 border-t border-indigo-500/20 leading-relaxed">
+                <p className="text-xs sm:text-sm text-slate-600 mt-3 pt-3 border-t border-slate-200 leading-relaxed">
                   {faq.a}
                 </p>
               )}

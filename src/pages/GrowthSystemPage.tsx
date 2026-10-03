@@ -89,16 +89,16 @@ export const GrowthSystemPage: React.FC<GrowthSystemPageProps> = ({ openLeadModa
   ];
 
   return (
-    <div className="min-h-screen pt-28 pb-20 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
+    <div className="min-h-screen pt-20 sm:pt-24 pb-14 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
       {/* Header */}
-      <div className="scroll-reveal text-center max-w-3xl mx-auto space-y-4 mb-12">
+      <div className="scroll-reveal text-center max-w-3xl mx-auto space-y-3 mb-8 sm:mb-10">
         <span className="text-xs font-black uppercase tracking-widest text-gradient-rainbow">
           OUR PROPRIETARY FRAMEWORK
         </span>
-        <h1 className="text-4xl sm:text-6xl font-black text-white tracking-tight">
+        <h1 className="text-3xl sm:text-5xl font-black text-slate-900 tracking-tight">
           The 5-Stage <span className="text-gradient-rainbow">Growth System</span>
         </h1>
-        <p className="text-slate-300 text-base sm:text-lg">
+        <p className="text-slate-600 text-sm sm:text-base">
           We don't simply run advertisements. We build an automated, dependable lead-generation infrastructure designed around your specific business model.
         </p>
       </div>
@@ -106,7 +106,7 @@ export const GrowthSystemPage: React.FC<GrowthSystemPageProps> = ({ openLeadModa
       {/* 3D Pipeline Canvas with Glass Container */}
       <div className="scroll-reveal max-w-4xl mx-auto">
         <div className="text-center mb-2">
-          <p className="text-xs font-black text-[#00D4FF] uppercase tracking-wider">
+          <p className="text-xs font-black text-[#00B4D8] uppercase tracking-wider">
             Interactive 3D Geometric Growth Pipeline
           </p>
         </div>
@@ -114,17 +114,17 @@ export const GrowthSystemPage: React.FC<GrowthSystemPageProps> = ({ openLeadModa
       </div>
 
       {/* Live Interactive Simulator & Step Navigator */}
-      <div className="scroll-reveal mt-16 max-w-5xl mx-auto">
+      <div className="scroll-reveal mt-8 sm:mt-10 max-w-5xl mx-auto">
         <InteractiveGrowthSystem openLeadModal={openLeadModal} />
       </div>
 
       {/* Deep-Dive Process Flow Cards with On-Scroll Reveal */}
-      <div className="mt-20 space-y-8 max-w-5xl mx-auto">
+      <div className="mt-10 sm:mt-12 space-y-5 sm:space-y-6 max-w-5xl mx-auto">
         <div className="text-center space-y-2 mb-10">
-          <h2 className="text-2xl sm:text-3xl font-black text-white">
+          <h2 className="text-2xl sm:text-3xl font-black text-slate-900">
             Detailed Stage Specifications
           </h2>
-          <p className="text-xs sm:text-sm text-slate-400">
+          <p className="text-xs sm:text-sm text-slate-500">
             A comprehensive look at what happens behind the scenes in each phase
           </p>
         </div>
@@ -135,7 +135,7 @@ export const GrowthSystemPage: React.FC<GrowthSystemPageProps> = ({ openLeadModa
           return (
             <div
               key={idx}
-              className="scroll-reveal tilt-card p-8 rounded-3xl glass-sapphire border border-white/10 hover:border-[#00D4FF]/50 relative overflow-hidden shadow-2xl group"
+              className="scroll-reveal tilt-card p-5 sm:p-7 rounded-2xl sm:rounded-3xl bg-white border border-slate-200 hover:border-[#00B4D8]/50 relative overflow-hidden shadow-lg group"
             >
               <div className="grid grid-cols-1 md:grid-cols-12 gap-6 items-center">
                 
@@ -145,7 +145,7 @@ export const GrowthSystemPage: React.FC<GrowthSystemPageProps> = ({ openLeadModa
                     {item.step}
                   </span>
                   <div 
-                    className="w-16 h-16 rounded-2xl border flex items-center justify-center group-hover:scale-110 transition-transform shadow-lg"
+                    className="w-16 h-16 rounded-2xl border flex items-center justify-center group-hover:scale-110 transition-transform shadow-md"
                     style={{ backgroundColor: `${item.color}15`, borderColor: `${item.color}40` }}
                   >
                     <Icon className="w-8 h-8" style={{ color: item.color }} />
@@ -155,7 +155,7 @@ export const GrowthSystemPage: React.FC<GrowthSystemPageProps> = ({ openLeadModa
                 {/* Details */}
                 <div className="md:col-span-9 space-y-3">
                   <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-1">
-                    <h3 className="text-2xl font-black text-white tracking-tight">
+                    <h3 className="text-2xl font-black text-slate-900 tracking-tight">
                       {item.name}
                     </h3>
                     <span className="text-xs font-bold uppercase tracking-wider" style={{ color: item.color }}>
@@ -163,14 +163,14 @@ export const GrowthSystemPage: React.FC<GrowthSystemPageProps> = ({ openLeadModa
                     </span>
                   </div>
 
-                  <p className="text-sm text-slate-200 leading-relaxed">
+                  <p className="text-sm text-slate-600 leading-relaxed">
                     {item.description}
                   </p>
 
                   <div className="pt-2 space-y-2">
                     {item.actions.map((act, aIdx) => (
-                      <div key={aIdx} className="flex items-center space-x-2 text-xs sm:text-sm text-slate-300">
-                        <CheckCircle2 className="w-4 h-4 text-emerald-400 flex-shrink-0" />
+                      <div key={aIdx} className="flex items-center space-x-2 text-xs sm:text-sm text-slate-700">
+                        <CheckCircle2 className="w-4 h-4 text-emerald-600 flex-shrink-0" />
                         <span>{act}</span>
                       </div>
                     ))}
@@ -184,16 +184,16 @@ export const GrowthSystemPage: React.FC<GrowthSystemPageProps> = ({ openLeadModa
       </div>
 
       {/* Philosophy Callout */}
-      <div className="scroll-reveal mt-20 p-8 sm:p-12 rounded-3xl rainbow-card border border-white/20 text-center max-w-4xl mx-auto space-y-6 shadow-2xl">
-        <h3 className="text-2xl sm:text-4xl font-black text-white">
+      <div className="scroll-reveal mt-20 p-8 sm:p-12 rounded-3xl rainbow-card border border-slate-200 text-center max-w-4xl mx-auto space-y-6 shadow-xl">
+        <h3 className="text-2xl sm:text-4xl font-black text-slate-900">
           Right Audience → Right Advertising → Quality Leads → Business Growth
         </h3>
-        <p className="text-sm sm:text-base text-slate-200 max-w-2xl mx-auto">
+        <p className="text-sm sm:text-base text-slate-600 max-w-2xl mx-auto">
           When all 5 stages of our growth system work in synergy, customer enquiries flow consistently into your business without wasting marketing budgets.
         </p>
         <button
           onClick={openLeadModal}
-          className="px-8 py-4 bg-gradient-to-r from-[#FF2E93] via-[#00D4FF] to-[#00E575] text-black font-black text-sm rounded-xl hover:brightness-110 shadow-xl shadow-cyan-500/30 transition-all"
+          className="px-8 py-4 bg-gradient-to-r from-[#FF2E93] via-[#00D4FF] to-[#00E575] text-black font-black text-sm rounded-xl hover:brightness-110 shadow-md transition-all"
         >
           Implement This System in Your Business
         </button>

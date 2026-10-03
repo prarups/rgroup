@@ -8,18 +8,18 @@ export default {
     extend: {
       colors: {
         luxury: {
-          bg: '#0A0E27',          // Deep Royal Sapphire (NOT plain black!)
-          bgSecondary: '#0F1538', // Midnight Indigo
-          surface: '#151C48',     // Frosted Sapphire Glass
-          card: 'rgba(21, 28, 72, 0.65)',
-          cardHover: 'rgba(30, 40, 100, 0.85)',
-          border: 'rgba(99, 102, 241, 0.25)',
-          borderGlow: 'rgba(0, 240, 255, 0.5)',
-          cyan: '#00F0FF',        // Electric Cyan
-          indigo: '#6366F1',      // Royal Indigo
-          purple: '#A855F7',      // Vivid Orchid
-          gold: '#F59E0B',        // Champagne Gold
-          emerald: '#10B981',     // High-Converting WhatsApp Green
+          bg: '#FFFFFF',          // Clean Luxury White
+          bgSecondary: '#F8FAFC', // Crisp Off-White/Pearl Slate
+          surface: '#FFFFFF',     // Pure White
+          card: 'rgba(255, 255, 255, 0.95)',
+          cardHover: 'rgba(255, 255, 255, 1)',
+          border: 'rgba(226, 232, 240, 0.9)',
+          borderGlow: 'rgba(0, 212, 255, 0.4)',
+          cyan: '#00B4D8',        // Rich Vibrant Cyan
+          indigo: '#4F46E5',      // Royal Indigo
+          purple: '#9333EA',      // Vivid Orchid
+          gold: '#D97706',        // Warm Amber Gold
+          emerald: '#059669',     // High-Converting WhatsApp Green
         }
       },
       fontFamily: {

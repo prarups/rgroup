@@ -4,21 +4,17 @@
 
 @layer base {
   :root {
-    color-scheme: dark;
+    color-scheme: light;
   }
   
   body {
-    /* Chromatic Iridescent Rainbow Aurora Canvas */
-    background: #07091B;
-    background-image: 
-      radial-gradient(at 5% 10%, rgba(255, 0, 128, 0.15) 0px, transparent 45%),
-      radial-gradient(at 95% 15%, rgba(0, 240, 255, 0.18) 0px, transparent 45%),
-      radial-gradient(at 50% 40%, rgba(168, 85, 247, 0.16) 0px, transparent 50%),
-      radial-gradient(at 10% 70%, rgba(245, 158, 11, 0.14) 0px, transparent 45%),
-      radial-gradient(at 85% 80%, rgba(16, 185, 129, 0.15) 0px, transparent 45%),
-      radial-gradient(at 50% 95%, rgba(99, 102, 241, 0.16) 0px, transparent 50%);
+    background-color: #F8FAFC;
+    background-image: url('/backgroud.png');
+    background-size: cover;
+    background-position: center top;
+    background-repeat: no-repeat;
     background-attachment: fixed;
-    color: #F8FAFC;
+    color: #0F172A;
     overflow-x: hidden;
   }
 
@@ -27,12 +23,12 @@
     width: 9px;
   }
   ::-webkit-scrollbar-track {
-    background: #07091B;
+    background: #F1F5F9;
   }
   ::-webkit-scrollbar-thumb {
     background: linear-gradient(180deg, #FF0080, #7928CA, #0070F3, #00DFD8, #4ADE80, #FACC15, #FF0080);
     border-radius: 9999px;
-    border: 2px solid #07091B;
+    border: 2px solid #FFFFFF;
   }
   ::-webkit-scrollbar-thumb:hover {
     background: linear-gradient(180deg, #FACC15, #4ADE80, #00DFD8, #0070F3, #7928CA, #FF0080);
@@ -57,8 +53,8 @@
     #FF2E93 0%, 
     #FF8A00 18%, 
     #FFDE00 36%, 
-    #00E575 54%, 
-    #00D4FF 72%, 
+    #00B862 54%, 
+    #0090FF 72%, 
     #845EC2 90%, 
     #FF2E93 100%
   );
@@ -74,8 +70,8 @@
     #FF2E93,
     #FF8A00,
     #FFDE00,
-    #00E575,
-    #00D4FF,
+    #00B862,
+    #00B4D8,
     #845EC2,
     #FF2E93
   );
@@ -83,18 +79,71 @@
   animation: rainbowFlow 8s ease infinite;
 }
 
-/* Rainbow Animated Border Cards */
+/* Rainbow Animated Border Cards - High-End Light Luxe */
 .rainbow-card {
   position: relative;
-  background: rgba(13, 17, 43, 0.75);
-  backdrop-filter: blur(20px);
-  -webkit-backdrop-filter: blur(20px);
+  background: #FFFFFF;
   border-radius: 1.5rem;
   overflow: hidden;
   z-index: 1;
+  box-shadow: 
+    0 15px 35px -10px rgba(0, 212, 255, 0.15),
+    0 0 25px -5px rgba(255, 46, 147, 0.1),
+    0 4px 6px -2px rgba(0, 0, 0, 0.04);
+  transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.4s ease;
 }
 
 .rainbow-card::before {
+  content: '';
+  position: absolute;
+  inset: -2.5px;
+  background: conic-gradient(
+    from 0deg,
+    #FF2E93,
+    #FF8A00,
+    #FFDE00,
+    #00E575,
+    #00D4FF,
+    #845EC2,
+    #FF2E93
+  );
+  border-radius: inherit;
+  z-index: -1;
+  opacity: 0.65;
+  transition: opacity 0.4s ease, filter 0.4s ease;
+  animation: rainbowSpin 8s linear infinite;
+  filter: blur(0.5px);
+}
+
+.rainbow-card:hover::before {
+  opacity: 1;
+  filter: blur(2px);
+}
+
+.rainbow-card::after {
+  content: '';
+  position: absolute;
+  inset: 2px;
+  background: #FFFFFF;
+  border-radius: inherit;
+  z-index: -1;
+}
+
+/* Dark Luxe Spotlight Card (for high-contrast hero focal cards on white canvas) */
+.dark-luxe-card {
+  position: relative;
+  background: radial-gradient(circle at 50% 0%, #151C45 0%, #080B1E 100%);
+  color: #F8FAFC;
+  border-radius: 1.75rem;
+  overflow: hidden;
+  z-index: 1;
+  border: 1px solid rgba(0, 212, 255, 0.35);
+  box-shadow: 
+    0 25px 60px -15px rgba(15, 23, 42, 0.35),
+    0 0 35px rgba(0, 212, 255, 0.15);
+}
+
+.dark-luxe-card::before {
   content: '';
   position: absolute;
   inset: -2px;
@@ -110,21 +159,15 @@
   );
   border-radius: inherit;
   z-index: -1;
-  opacity: 0.35;
-  transition: opacity 0.4s ease;
+  opacity: 0.55;
   animation: rainbowSpin 10s linear infinite;
 }
 
-.rainbow-card:hover::before {
-  opacity: 0.9;
-  filter: blur(1px);
-}
-
-.rainbow-card::after {
+.dark-luxe-card::after {
   content: '';
   position: absolute;
-  inset: 1.5px;
-  background: rgba(13, 17, 43, 0.9);
+  inset: 2px;
+  background: radial-gradient(circle at 50% 0%, #151C45 0%, #080B1E 100%);
   border-radius: inherit;
   z-index: -1;
 }
@@ -132,47 +175,46 @@
 /* Rainbow Glowing Shadow */
 .rainbow-glow {
   box-shadow: 
-    0 0 25px rgba(255, 46, 147, 0.2),
-    0 0 45px rgba(0, 212, 255, 0.2),
+    0 0 25px rgba(255, 46, 147, 0.18),
+    0 0 45px rgba(0, 212, 255, 0.18),
     0 0 65px rgba(0, 229, 117, 0.15);
 }
 
-/* Glass Panels with Prismatic Tint */
+/* Glass Panels with Clean Light Tint & Elevated Border */
 .glass-sapphire {
-  background: rgba(14, 18, 48, 0.7);
+  background: rgba(255, 255, 255, 0.92);
   backdrop-filter: blur(20px);
   -webkit-backdrop-filter: blur(20px);
-  border: 1px solid rgba(255, 255, 255, 0.12);
-  box-shadow: 0 10px 30px -10px rgba(0, 0, 0, 0.4);
+  border: 1.5px solid rgba(226, 232, 240, 0.95);
+  box-shadow: 
+    0 12px 30px -8px rgba(0, 0, 0, 0.06),
+    0 0 1px rgba(0, 0, 0, 0.1);
 }
 
 .glass-sapphire-glow {
-  background: rgba(18, 23, 60, 0.8);
+  background: #FFFFFF;
   backdrop-filter: blur(24px);
   -webkit-backdrop-filter: blur(24px);
-  border: 1px solid rgba(0, 240, 255, 0.35);
+  border: 2px solid rgba(0, 212, 255, 0.5);
   box-shadow: 
-    0 0 35px rgba(0, 240, 255, 0.15),
-    0 0 45px rgba(255, 46, 147, 0.12);
+    0 15px 45px -10px rgba(0, 212, 255, 0.2),
+    0 0 25px rgba(255, 46, 147, 0.1);
 }
 
 /* ================== SCROLL-DRIVEN REVEAL ANIMATIONS ================== */
 .scroll-reveal {
-  opacity: 0;
-  transform: translateY(45px) scale(0.96);
-  transition: opacity 0.75s cubic-bezier(0.16, 1, 0.3, 1), transform 0.75s cubic-bezier(0.16, 1, 0.3, 1);
-  will-change: opacity, transform;
+  opacity: 1;
+  transition: opacity 0.6s cubic-bezier(0.16, 1, 0.3, 1), transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 .scroll-reveal.active {
   opacity: 1;
-  transform: translateY(0) scale(1);
+  transform: translateY(0);
 }
 
 .scroll-reveal-left {
-  opacity: 0;
-  transform: translateX(-50px);
-  transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1), transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+  opacity: 1;
+  transition: opacity 0.6s cubic-bezier(0.16, 1, 0.3, 1), transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
 }
 .scroll-reveal-left.active {
   opacity: 1;
@@ -180,9 +222,8 @@
 }
 
 .scroll-reveal-right {
-  opacity: 0;
-  transform: translateX(50px);
-  transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1), transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+  opacity: 1;
+  transition: opacity 0.6s cubic-bezier(0.16, 1, 0.3, 1), transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
 }
 .scroll-reveal-right.active {
   opacity: 1;
@@ -206,3 +247,36 @@
     0 15px 35px -10px rgba(0, 240, 255, 0.3),
     0 15px 35px -10px rgba(255, 46, 147, 0.25);
 }
+
+/* Luxury Light Card Styles */
+.stat-card-lux {
+  position: relative;
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border-radius: 1.25rem;
+  border: 1px solid rgba(226, 232, 240, 0.9);
+  box-shadow: 0 10px 30px -10px rgba(0, 0, 0, 0.08), 0 0 1px rgba(0, 0, 0, 0.05);
+  overflow: hidden;
+  transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.stat-card-lux:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 20px 40px -12px rgba(0, 0, 0, 0.12), 0 0 25px -5px rgba(0, 212, 255, 0.2);
+}
+
+.feature-card-lux {
+  position: relative;
+  background: #FFFFFF;
+  border-radius: 1.5rem;
+  border: 1.5px solid rgba(226, 232, 240, 0.85);
+  box-shadow: 0 12px 35px -10px rgba(15, 23, 42, 0.08);
+  transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+  overflow: hidden;
+}
+.feature-card-lux:hover {
+  transform: translateY(-8px);
+  border-color: rgba(0, 212, 255, 0.5);
+  box-shadow: 0 25px 50px -12px rgba(0, 212, 255, 0.2), 0 0 30px -5px rgba(255, 46, 147, 0.15);
+}
+

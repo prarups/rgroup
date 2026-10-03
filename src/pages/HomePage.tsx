@@ -1,8 +1,7 @@
 import React, { useState, useEffect } from 'react';
-import { Hero3DCanvas } from '../components/canvas/Hero3DCanvas';
-import { HeroVideoPlayer } from '../components/video/HeroVideoPlayer';
 import { InteractiveGrowthSystem } from '../components/growth/InteractiveGrowthSystem';
 import { useScrollReveal } from '../hooks/useScrollReveal';
+import { CONTACT_CONFIG } from '../config/contact';
 import { 
   Sparkles, 
   ArrowRight, 
@@ -145,112 +144,170 @@ export const HomePage: React.FC<HomePageProps> = ({ setCurrentPage, openLeadModa
   return (
     <div className="relative min-h-screen pt-20">
       
-      {/* Dynamic Chromatic Rainbow Background Orbs */}
+      {/* Dynamic Ambient Background Glow */}
       <div className="fixed inset-0 pointer-events-none overflow-hidden z-0">
-        <div className="absolute top-[8%] left-[2%] w-[520px] h-[520px] bg-[#FF2E93]/15 rounded-full blur-[160px] animate-pulse-glow" />
-        <div className="absolute top-[35%] right-[2%] w-[580px] h-[580px] bg-[#00D4FF]/16 rounded-full blur-[170px] animate-aurora-flow" />
-        <div className="absolute top-[60%] left-[10%] w-[500px] h-[500px] bg-[#00E575]/12 rounded-full blur-[150px]" />
-        <div className="absolute top-[85%] right-[15%] w-[560px] h-[560px] bg-[#FFDE00]/12 rounded-full blur-[160px]" />
+        <div className="absolute top-[8%] left-[5%] w-[500px] h-[500px] bg-[#00D4FF]/6 rounded-full blur-[160px]" />
+        <div className="absolute top-[35%] right-[5%] w-[550px] h-[550px] bg-[#0066FF]/6 rounded-full blur-[170px]" />
+        <div className="absolute top-[65%] left-[10%] w-[480px] h-[480px] bg-[#10B981]/5 rounded-full blur-[150px]" />
       </div>
 
-      {/* ================= FULLSCREEN LIVE VIDEO WALLPAPER HERO ================= */}
-      <section className="relative w-full h-screen min-h-[680px] max-h-[950px] flex flex-col justify-between pt-3 sm:pt-5 pb-24 sm:pb-32 px-4 sm:px-6 lg:px-8 overflow-hidden z-10">
+      {/* ================= HERO: FOUNDER SPOTLIGHT & DIRECT VALUE PROPOSITION ================= */}
+      <section className="relative pt-3 sm:pt-6 pb-10 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto z-10">
         
-        {/* Fullscreen Video Wallpaper (Edge-to-Edge, 100% Original Brightness, No Darkening) */}
-        <div className="absolute inset-0 w-full h-full overflow-hidden pointer-events-none z-0">
-          <video
-            src="/Professional_video.mp4"
-            autoPlay
-            loop
-            muted
-            playsInline
-            className="w-full h-full object-cover object-center scale-100"
-          />
-          {/* Subtle bottom transition gradient into the next section */}
-          <div className="absolute inset-x-0 bottom-0 h-44 bg-gradient-to-t from-[#07091B] via-[#07091B]/50 to-transparent pointer-events-none" />
-        </div>
-
-        {/* TOP: Continuous Motion Typewriter Message Directly Below Navbar */}
-        <div className="relative z-10 w-full max-w-4xl mx-auto text-center pt-1 sm:pt-3">
-          <div className="inline-flex items-center justify-center max-w-full px-4 py-2.5 sm:px-8 sm:py-3.5 rounded-2xl bg-black/75 backdrop-blur-2xl border border-white/25 shadow-[0_15px_45px_rgba(0,0,0,0.85)]">
-            <span className="w-2.5 h-2.5 rounded-full bg-[#00E575] animate-ping mr-2.5 flex-shrink-0" />
-            <div className="text-xs sm:text-base md:text-xl font-black tracking-wide text-white drop-shadow min-h-[24px] sm:min-h-[30px] flex items-center justify-center">
-              <span className="text-gradient-rainbow">
+        {/* Continuous Motion Typewriter Message Directly Below Navbar */}
+        <div className="w-full max-w-3xl mx-auto text-center mb-6 sm:mb-8">
+          <div className="inline-flex items-center justify-center max-w-full px-4 py-2 sm:px-6 sm:py-2.5 rounded-full bg-[#0A122E]/85 backdrop-blur-xl border border-cyan-400/30 shadow-lg shadow-cyan-500/10">
+            <span className="w-2 h-2 rounded-full bg-emerald-400 animate-ping mr-2.5 flex-shrink-0" />
+            <div className="text-xs sm:text-sm md:text-base font-extrabold tracking-wide text-white drop-shadow-sm flex items-center justify-center">
+              <span className="text-transparent bg-clip-text bg-gradient-to-r from-cyan-300 via-sky-200 to-emerald-300">
                 {displayText}
               </span>
-              <span className="inline-block w-[3px] h-3.5 sm:h-5 bg-[#00D4FF] ml-1.5 animate-pulse rounded-full shadow-[0_0_8px_#00D4FF]" />
+              <span className="inline-block w-[2.5px] h-3.5 sm:h-4 bg-[#00D4FF] ml-1.5 animate-pulse rounded-full" />
             </div>
           </div>
         </div>
 
-        {/* BOTTOM: Floating Actions & Stats Lifted Up to Eliminate Gap */}
-        <div className="relative z-10 w-full max-w-4xl mx-auto text-center space-y-4 sm:space-y-5 -translate-y-3 sm:-translate-y-8">
+        {/* HERO GRID: LEFT = Raghul Photo with Cyber Cyan & Sapphire Frame, RIGHT = Luxury Message Card */}
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-8 items-center">
           
-          {/* Primary Action Buttons */}
-          <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
-            <button
-              onClick={openLeadModal}
-              className="w-full sm:w-auto px-9 py-4 rounded-2xl bg-gradient-to-r from-[#FF2E93] via-[#FF8A00] via-[#FFDE00] via-[#00E575] via-[#00D4FF] to-[#845EC2] text-black font-black text-base tracking-wide shadow-[0_10px_35px_rgba(255,46,147,0.5)] hover:scale-105 active:scale-95 transition-all flex items-center justify-center space-x-2"
-            >
-              <span>Get Daily Leads On WhatsApp</span>
-              <ArrowRight className="w-5 h-5 text-black" />
-            </button>
-            <button
-              onClick={() => navigateTo('growth-system')}
-              className="w-full sm:w-auto px-8 py-4 rounded-2xl bg-black/60 backdrop-blur-xl hover:bg-black/80 text-white font-bold text-base border border-white/30 transition-all flex items-center justify-center space-x-2 shadow-2xl"
-            >
-              <span>Explore Growth System</span>
-              <ChevronRight className="w-4 h-4 text-[#00D4FF]" />
-            </button>
+          {/* LEFT SIDE: A. Raghul Photo & Profile */}
+          <div className="lg:col-span-5 flex flex-col items-center">
+            <div className="relative group w-full max-w-sm mx-auto">
+              {/* Precision Dual-Tone Edge Glow */}
+              <div className="relative p-1 rounded-3xl bg-gradient-to-b from-cyan-400 via-blue-500/70 to-[#0A122E] shadow-2xl shadow-cyan-500/25 ring-1 ring-cyan-400/30">
+                <div className="relative rounded-[22px] overflow-hidden bg-slate-950 aspect-[4/5] w-full">
+                  <img 
+                    src="/ragual.png" 
+                    alt="A. Raghul - Founder & Growth Consultant" 
+                    className="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-500" 
+                  />
+                  
+                  {/* Subtle dark gradient overlay on bottom of image for text readability */}
+                  <div className="absolute inset-0 bg-gradient-to-t from-slate-950/90 via-slate-950/25 to-transparent pointer-events-none" />
+
+                  {/* Top Left Live Badge */}
+                  <div className="absolute top-3.5 left-3.5">
+                    <span className="px-3 py-1 rounded-full bg-slate-950/85 backdrop-blur-md text-emerald-400 font-black text-[11px] border border-emerald-500/40 shadow-lg flex items-center space-x-1.5">
+                      <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse" />
+                      <span>DIRECT LEADS ARCHITECT</span>
+                    </span>
+                  </div>
+
+                  {/* Bottom Info Card over Photo */}
+                  <div className="absolute bottom-3.5 inset-x-3.5 p-3 rounded-2xl bg-[#080E24]/90 backdrop-blur-md border border-white/10 text-center shadow-xl">
+                    <h3 className="text-xl sm:text-2xl font-black text-white tracking-wide">A. RAGHUL</h3>
+                    <p className="text-xs text-[#00D4FF] font-bold">Founder & Marketing Director</p>
+                    <p className="text-[10px] text-slate-300 font-semibold">Pillow Digital • Backed by R GROUP</p>
+                  </div>
+                </div>
+              </div>
+
+              {/* Experience Floating Badge */}
+              <div className="absolute -bottom-3.5 left-1/2 -translate-x-1/2 px-4 py-1.5 rounded-full bg-[#0A122E] text-white font-extrabold text-xs shadow-xl whitespace-nowrap border border-cyan-400/50 flex items-center space-x-1.5 z-20">
+                <span className="text-[#00D4FF]">★</span>
+                <span>4+ Years Exp</span>
+                <span className="text-slate-500">•</span>
+                <span className="text-emerald-400">100+ Clients Handled</span>
+              </div>
+            </div>
           </div>
 
-          {/* Floating Stats Bar on Wallpaper */}
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-3.5 max-w-4xl mx-auto pt-2">
-            <div className="p-3.5 rounded-2xl bg-black/55 backdrop-blur-xl border border-white/20 shadow-xl tilt-card">
-              <p className="text-2xl sm:text-3xl font-black text-[#FF2E93]">4+ Years</p>
-              <p className="text-[10px] sm:text-xs text-slate-200 mt-0.5 uppercase font-bold tracking-wider">Marketing Exp</p>
+          {/* RIGHT SIDE: Elevated Luxury Message Showcase Card */}
+          <div className="lg:col-span-7 bg-white/95 backdrop-blur-xl p-6 sm:p-8 rounded-3xl border border-slate-200/90 shadow-2xl shadow-slate-900/10 space-y-4 text-left relative overflow-hidden">
+            {/* Subtle Top Accent Line */}
+            <div className="absolute top-0 inset-x-0 h-1 bg-gradient-to-r from-[#00D4FF] via-[#0066FF] to-[#10B981]" />
+
+            <div className="inline-flex items-center space-x-2 px-3.5 py-1.5 rounded-full bg-cyan-50 border border-cyan-200 text-xs font-black uppercase tracking-wider text-[#0284C7]">
+              <Sparkles className="w-3.5 h-3.5 text-[#0090FF]" />
+              <span>DIRECT MESSAGE FROM FOUNDER A. RAGHUL</span>
             </div>
-            <div className="p-3.5 rounded-2xl bg-black/55 backdrop-blur-xl border border-white/20 shadow-xl tilt-card">
-              <p className="text-2xl sm:text-3xl font-black text-[#FF8A00]">100+</p>
-              <p className="text-[10px] sm:text-xs text-slate-200 mt-0.5 uppercase font-bold tracking-wider">Clients Handled</p>
+
+            <h1 className="text-2xl sm:text-3xl lg:text-4xl font-black text-slate-900 leading-snug tracking-tight">
+              "We Don't Just Run Ads — <br />
+              <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#0055D4] via-[#0084FF] to-[#00D4FF]">
+                We Engineer Predictable Customer Acquisition Systems."
+              </span>
+            </h1>
+
+            <p className="text-xs sm:text-sm text-slate-600 leading-relaxed font-normal">
+              Most business owners waste lakhs on generic agency ads that bring vanity likes, bot accounts, or people asking for freebies. At <strong className="text-slate-900 font-bold">Pillow Digital</strong> under <strong className="text-slate-900 font-bold">R GROUP</strong>, we build turnkey campaigns that deliver pre-qualified buyers <strong className="text-emerald-600 font-bold">directly to your WhatsApp</strong> every single day.
+            </p>
+
+            {/* Quick Stats Grid with Cohesive Color System */}
+            <div className="grid grid-cols-2 sm:grid-cols-4 gap-2.5 pt-1">
+              <div className="p-3 rounded-2xl bg-blue-50/70 border border-blue-200/80 text-center relative overflow-hidden">
+                <div className="absolute top-0 inset-x-0 h-1 bg-[#0066FF]" />
+                <p className="text-xl font-black text-[#0066FF]">4+ Years</p>
+                <p className="text-[10px] text-slate-600 font-bold uppercase">Marketing Exp</p>
+              </div>
+              <div className="p-3 rounded-2xl bg-cyan-50/70 border border-cyan-200/80 text-center relative overflow-hidden">
+                <div className="absolute top-0 inset-x-0 h-1 bg-[#00B4D8]" />
+                <p className="text-xl font-black text-[#0090FF]">100+</p>
+                <p className="text-[10px] text-slate-600 font-bold uppercase">Clients Handled</p>
+              </div>
+              <div className="p-3 rounded-2xl bg-emerald-50/70 border border-emerald-200/80 text-center relative overflow-hidden">
+                <div className="absolute top-0 inset-x-0 h-1 bg-[#10B981]" />
+                <p className="text-xl font-black text-[#059669]">Daily</p>
+                <p className="text-[10px] text-slate-600 font-bold uppercase">WhatsApp Leads</p>
+              </div>
+              <div className="p-3 rounded-2xl bg-indigo-50/70 border border-indigo-200/80 text-center relative overflow-hidden">
+                <div className="absolute top-0 inset-x-0 h-1 bg-[#6366F1]" />
+                <p className="text-xl font-black text-[#4F46E5]">100%</p>
+                <p className="text-[10px] text-slate-600 font-bold uppercase">Guarantee*</p>
+              </div>
             </div>
-            <div className="p-3.5 rounded-2xl bg-black/55 backdrop-blur-xl border border-white/20 shadow-xl tilt-card">
-              <p className="text-2xl sm:text-3xl font-black text-[#00E575]">Daily</p>
-              <p className="text-[10px] sm:text-xs text-slate-200 mt-0.5 uppercase font-bold tracking-wider">WhatsApp Leads</p>
+
+            {/* Primary Action Buttons */}
+            <div className="flex flex-col sm:flex-row items-center gap-3 pt-2">
+              <button
+                onClick={openLeadModal}
+                className="w-full sm:w-auto px-7 py-3 rounded-xl bg-gradient-to-r from-emerald-500 via-emerald-600 to-teal-600 text-white font-black text-xs sm:text-sm tracking-wide shadow-lg shadow-emerald-500/25 hover:brightness-110 active:scale-95 transition-all flex items-center justify-center space-x-2"
+              >
+                <MessageCircle className="w-4 h-4 text-white" />
+                <span>Get Daily Leads On WhatsApp</span>
+                <ArrowRight className="w-4 h-4 text-white" />
+              </button>
+              <button
+                onClick={() => navigateTo('growth-system')}
+                className="w-full sm:w-auto px-5 py-3 rounded-xl bg-white hover:bg-slate-50 text-slate-800 font-bold text-xs sm:text-sm border border-slate-300 transition-all flex items-center justify-center space-x-1.5 shadow-sm"
+              >
+                <span>Explore Growth System</span>
+                <ChevronRight className="w-4 h-4 text-[#00B4D8]" />
+              </button>
             </div>
-            <div className="p-3.5 rounded-2xl bg-black/55 backdrop-blur-xl border border-white/20 shadow-xl tilt-card">
-              <p className="text-2xl sm:text-3xl font-black text-[#00D4FF]">100%</p>
-              <p className="text-[10px] sm:text-xs text-slate-200 mt-0.5 uppercase font-bold tracking-wider">Guarantee*</p>
-            </div>
+
           </div>
 
         </div>
+
       </section>
 
+
+
       {/* ================= VISUAL COMPARISON: PAIN POINT VS PILLOW DIGITAL ================= */}
-      <section className="relative py-24 px-4 sm:px-6 lg:px-8 z-10">
-        <div className="max-w-6xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-10 items-center">
+      <section className="relative py-10 sm:py-14 px-4 sm:px-6 lg:px-8 z-10">
+        <div className="max-w-6xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-10 items-center">
           
           {/* Left: Pain Point with Image */}
-          <div className="scroll-reveal-left space-y-6">
-            <div className="inline-flex items-center space-x-2 px-3.5 py-1.5 rounded-full bg-rose-500/20 text-rose-300 border border-rose-500/30 text-xs font-black uppercase tracking-wider">
+          <div className="scroll-reveal-left space-y-4">
+            <div className="inline-flex items-center space-x-2 px-3 py-1 rounded-full bg-rose-50 text-rose-700 border border-rose-200 text-xs font-black uppercase tracking-wider">
               <span>Why Traditional Marketing Fails</span>
             </div>
-            <h2 className="text-3xl sm:text-5xl font-black text-white leading-tight">
+            <h2 className="text-2xl sm:text-4xl font-black text-slate-900 leading-tight">
               Tired of Irrelevant Enquiries & Wasted Ad Budgets?
             </h2>
-            <p className="text-slate-300 text-base leading-relaxed">
+            <p className="text-slate-600 text-base leading-relaxed">
               Most business owners lose money boosting random posts that bring vanity likes, bot accounts, or people asking for freebies.
             </p>
 
             {/* Visual Callout Image */}
-            <div className="relative rounded-2xl overflow-hidden border border-rose-500/30 shadow-2xl h-52 group">
+            <div className="relative rounded-2xl overflow-hidden border border-rose-200 shadow-lg h-52 group">
               <img 
                 src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=800&q=80" 
                 alt="Wasted Marketing Budgets" 
                 className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500 filter grayscale contrast-125"
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-[#0B0F22] via-[#0B0F22]/70 to-transparent flex items-end p-5">
+              <div className="absolute inset-0 bg-gradient-to-t from-slate-900/90 via-slate-900/50 to-transparent flex items-end p-5">
                 <p className="text-xs text-rose-300 font-extrabold flex items-center space-x-2">
                   <span className="text-rose-400 text-sm">⚠️</span>
                   <span>Unqualified ad boosting leads to high ad spend with zero paying clients</span>
@@ -259,30 +316,30 @@ export const HomePage: React.FC<HomePageProps> = ({ setCurrentPage, openLeadModa
             </div>
 
             <div className="space-y-2.5">
-              <div className="flex items-center space-x-3 p-3 rounded-xl bg-rose-950/30 border border-rose-500/30 text-sm text-slate-200">
-                <span className="text-rose-400 font-extrabold">✕</span>
+              <div className="flex items-center space-x-3 p-3 rounded-xl bg-rose-50 border border-rose-200 text-sm text-slate-700">
+                <span className="text-rose-600 font-extrabold">✕</span>
                 <span>Boosting posts blindly without customer purchase intent segmentation</span>
               </div>
-              <div className="flex items-center space-x-3 p-3 rounded-xl bg-rose-950/30 border border-rose-500/30 text-sm text-slate-200">
-                <span className="text-rose-400 font-extrabold">✕</span>
+              <div className="flex items-center space-x-3 p-3 rounded-xl bg-rose-50 border border-rose-200 text-sm text-slate-700">
+                <span className="text-rose-600 font-extrabold">✕</span>
                 <span>No instant WhatsApp routing leading to cold, lost leads</span>
               </div>
             </div>
           </div>
 
           {/* Right: The Solution with High-Impact Image & Live WhatsApp Chat Mockup */}
-          <div className="scroll-reveal-right rainbow-card p-6 sm:p-8 space-y-6 shadow-2xl">
+          <div className="scroll-reveal-right dark-luxe-card p-6 sm:p-8 space-y-6 shadow-2xl">
             {/* Visual Image with WhatsApp Chat Overlay */}
-            <div className="relative rounded-2xl overflow-hidden border border-[#00E575]/40 h-64 group bg-[#07131B]">
+            <div className="relative rounded-2xl overflow-hidden border border-[#00E575]/40 h-64 group bg-slate-950">
               <img 
                 src="https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&w=800&q=80" 
                 alt="High-Intent WhatsApp Customer Deals" 
                 className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500 opacity-60"
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-[#060D1E] via-[#060D1E]/40 to-transparent" />
+              <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/40 to-transparent" />
               
               {/* Floating Real-Time WhatsApp Lead Notification */}
-              <div className="absolute inset-x-4 bottom-4 p-3.5 rounded-2xl bg-[#0B141B]/95 border border-emerald-500/50 backdrop-blur-md shadow-2xl space-y-2">
+              <div className="absolute inset-x-4 bottom-4 p-3.5 rounded-2xl bg-slate-900/95 border border-emerald-500/60 backdrop-blur-md shadow-2xl space-y-2">
                 <div className="flex items-center justify-between text-xs">
                   <div className="flex items-center space-x-2">
                     <span className="w-2.5 h-2.5 rounded-full bg-emerald-400 animate-ping" />
@@ -296,14 +353,14 @@ export const HomePage: React.FC<HomePageProps> = ({ setCurrentPage, openLeadModa
                 <p className="text-xs font-bold text-white leading-snug">
                   "Hi A. Raghul! Saw your ad. We want 50+ quality leads for our clinic this week."
                 </p>
-                <div className="flex items-center justify-between pt-1 border-t border-white/10 text-[10px] text-slate-300">
-                  <span className="text-emerald-300 font-extrabold">✓✓ Delivered to Your Phone</span>
-                  <span className="text-[#FFDE00] font-black">Pre-Qualified Buyer</span>
+                <div className="flex items-center justify-between pt-1 border-t border-slate-700/60 text-[10px] text-slate-300">
+                  <span className="text-emerald-400 font-extrabold">✓✓ Delivered to Your Phone</span>
+                  <span className="text-amber-400 font-black">Pre-Qualified Buyer</span>
                 </div>
               </div>
 
               <div className="absolute top-3 left-3">
-                <span className="px-3 py-1 rounded-lg bg-emerald-500 text-black font-black text-xs shadow-xl">
+                <span className="px-3 py-1 rounded-lg bg-emerald-500 text-slate-950 font-black text-xs shadow-xl">
                   ✓ High-Intent Deals Closing Daily on WhatsApp
                 </span>
               </div>
@@ -319,11 +376,11 @@ export const HomePage: React.FC<HomePageProps> = ({ setCurrentPage, openLeadModa
             </div>
 
             <div className="space-y-2.5">
-              <div className="flex items-start space-x-3 p-3 rounded-xl bg-emerald-950/40 border border-emerald-500/30 text-sm text-white">
+              <div className="flex items-start space-x-3 p-3 rounded-xl bg-white/5 border border-emerald-500/30 text-sm text-slate-200">
                 <CheckCircle2 className="w-5 h-5 text-emerald-400 flex-shrink-0 mt-0.5" />
                 <span>Laser-targeted Meta Ads aimed at paying customers in your location.</span>
               </div>
-              <div className="flex items-start space-x-3 p-3 rounded-xl bg-emerald-950/40 border border-emerald-500/30 text-sm text-white">
+              <div className="flex items-start space-x-3 p-3 rounded-xl bg-white/5 border border-emerald-500/30 text-sm text-slate-200">
                 <CheckCircle2 className="w-5 h-5 text-emerald-400 flex-shrink-0 mt-0.5" />
                 <span>Enquiries delivered straight to WhatsApp so you can close deals instantly.</span>
               </div>
@@ -331,7 +388,7 @@ export const HomePage: React.FC<HomePageProps> = ({ setCurrentPage, openLeadModa
 
             <button
               onClick={openLeadModal}
-              className="w-full py-3.5 bg-gradient-to-r from-[#FF2E93] via-[#00D4FF] to-[#00E575] text-black font-black text-sm rounded-xl hover:brightness-110 transition-all shadow-xl shadow-cyan-500/25"
+              className="w-full py-4 bg-gradient-to-r from-[#FF2E93] via-[#FFDE00] via-[#00E575] to-[#00D4FF] text-black font-black text-sm rounded-xl hover:brightness-110 active:scale-95 transition-all shadow-lg shadow-emerald-500/20"
             >
               Start Getting Daily Leads Now
             </button>
@@ -341,81 +398,97 @@ export const HomePage: React.FC<HomePageProps> = ({ setCurrentPage, openLeadModa
       </section>
 
       {/* ================= SCROLL REVEAL: 7 CORE SERVICES WITH REAL IMAGERY ================= */}
-      <section className="py-24 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto z-10 relative">
-        <div className="scroll-reveal text-center max-w-3xl mx-auto mb-16 space-y-4">
-          <div className="inline-flex items-center space-x-2 px-3.5 py-1.5 rounded-full bg-white/10 text-gradient-rainbow border border-white/15 text-xs font-black uppercase tracking-wider">
-            <Zap className="w-3.5 h-3.5 text-[#FFDE00]" />
+      <section className="py-10 sm:py-14 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto z-10 relative">
+        <div className="scroll-reveal text-center max-w-3xl mx-auto mb-8 sm:mb-10 space-y-2">
+          <div className="inline-flex items-center space-x-2 px-3 py-1 rounded-full bg-slate-100 text-gradient-rainbow border border-slate-200 text-xs font-black uppercase tracking-wider">
+            <Zap className="w-3.5 h-3.5 text-[#D97706]" />
             <span>Comprehensive Marketing Arsenal</span>
           </div>
-          <h2 className="text-3xl sm:text-5xl font-black text-white tracking-tight">
+          <h2 className="text-2xl sm:text-4xl font-black text-slate-900 tracking-tight">
             Our 7 High-Impact Services
           </h2>
-          <p className="text-slate-300 text-base sm:text-lg">
+          <p className="text-slate-600 text-sm sm:text-base">
             Everything your business needs to attract buyers, establish authority, and maximize return on ad spend.
           </p>
         </div>
 
         {/* 7 Services Grid with Images */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-7">
           {services.map((srv, idx) => {
             const Icon = srv.icon;
             const delayClass = `delay-${(idx % 4 + 1) * 100}`;
+            
+            const accentColors = [
+              { tagBg: "bg-pink-50 text-[#FF2E93] border-pink-200", iconColor: "text-[#FF2E93]" },
+              { tagBg: "bg-cyan-50 text-[#0090FF] border-cyan-200", iconColor: "text-[#00B4D8]" },
+              { tagBg: "bg-emerald-50 text-emerald-700 border-emerald-200", iconColor: "text-emerald-500" },
+              { tagBg: "bg-amber-50 text-amber-700 border-amber-200", iconColor: "text-[#FF8A00]" },
+              { tagBg: "bg-purple-50 text-[#845EC2] border-purple-200", iconColor: "text-[#845EC2]" },
+              { tagBg: "bg-sky-50 text-sky-700 border-sky-200", iconColor: "text-[#00D4FF]" },
+              { tagBg: "bg-yellow-50 text-yellow-800 border-yellow-300", iconColor: "text-amber-500" },
+            ];
+            const currentAccent = accentColors[idx % accentColors.length];
 
             return (
               <div
                 key={idx}
-                className={`scroll-reveal ${delayClass} rainbow-card tilt-card overflow-hidden flex flex-col justify-between group shadow-xl`}
+                className={`scroll-reveal ${delayClass} rainbow-card tilt-card overflow-hidden flex flex-col justify-between group shadow-lg hover:shadow-2xl transition-all duration-300`}
               >
                 {/* Visual Service Image */}
-                <div className="relative h-44 w-full overflow-hidden">
+                <div className="relative h-48 w-full overflow-hidden">
                   <img 
                     src={srv.image} 
                     alt={srv.title} 
                     className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" 
                   />
-                  <div className="absolute inset-0 bg-gradient-to-t from-[#0D112B] via-[#0D112B]/40 to-transparent" />
+                  <div className="absolute inset-0 bg-gradient-to-t from-slate-950/85 via-slate-900/30 to-transparent" />
                   
                   {/* Badge & Icon on Image */}
                   <div className="absolute top-3.5 left-3.5 right-3.5 flex items-center justify-between">
-                    <span className="text-[11px] font-black px-3 py-1 rounded-full bg-black/60 text-white backdrop-blur-md border border-white/20">
+                    <span className="text-[11px] font-black px-3 py-1 rounded-full bg-slate-950/80 text-white backdrop-blur-md border border-white/20 shadow-md">
                       {srv.badge}
                     </span>
-                    <div className="w-9 h-9 rounded-xl bg-black/60 backdrop-blur-md border border-white/20 flex items-center justify-center">
-                      <Icon className="w-4 h-4 text-[#00D4FF]" />
+                    <div className="w-10 h-10 rounded-xl bg-slate-950/80 backdrop-blur-md border border-white/20 flex items-center justify-center shadow-lg group-hover:rotate-6 transition-transform">
+                      <Icon className={`w-5 h-5 ${currentAccent.iconColor}`} />
                     </div>
                   </div>
 
                   <div className="absolute bottom-3 left-4">
-                    <span className="text-[11px] font-extrabold text-[#FFDE00] uppercase tracking-wider">
+                    <span className="text-[11px] font-black text-[#FFDE00] uppercase tracking-wider drop-shadow-md">
                       {srv.tag}
                     </span>
                   </div>
                 </div>
 
                 {/* Content */}
-                <div className="p-6 space-y-3 flex-grow flex flex-col justify-between">
+                <div className="p-6 space-y-4 flex-grow flex flex-col justify-between">
                   <div className="space-y-2">
-                    <h3 className="text-xl font-black text-white group-hover:text-gradient-rainbow transition-colors">
+                    <div className="flex items-center space-x-2">
+                      <span className={`text-[10px] font-black px-2.5 py-0.5 rounded-full border ${currentAccent.tagBg}`}>
+                        Service 0{idx + 1}
+                      </span>
+                    </div>
+                    <h3 className="text-xl font-black text-slate-900 group-hover:text-gradient-rainbow transition-colors">
                       {srv.title}
                     </h3>
-                    <p className="text-xs text-slate-300 leading-relaxed font-normal">
+                    <p className="text-xs text-slate-600 leading-relaxed font-normal">
                       {srv.desc}
                     </p>
                   </div>
 
-                  <div className="pt-4 mt-4 border-t border-white/10 flex items-center justify-between">
+                  <div className="pt-4 mt-4 border-t border-slate-200/90 flex items-center justify-between">
                     <button
                       onClick={() => navigateTo('services')}
-                      className="text-xs font-bold text-slate-300 group-hover:text-white flex items-center space-x-1"
+                      className="text-xs font-bold text-slate-600 group-hover:text-slate-900 flex items-center space-x-1.5 transition-colors"
                     >
                       <span>Deliverables</span>
-                      <ArrowRight className="w-3.5 h-3.5 group-hover:translate-x-1 transition-transform" />
+                      <ArrowRight className="w-3.5 h-3.5 group-hover:translate-x-1.5 transition-transform" />
                     </button>
                     <button
                       onClick={openLeadModal}
-                      className="text-xs font-black text-[#FFDE00] hover:underline"
+                      className="text-xs font-black px-3.5 py-1.5 rounded-lg bg-slate-100 hover:bg-gradient-to-r hover:from-[#FF2E93] hover:to-[#00D4FF] hover:text-black text-slate-800 transition-all shadow-sm"
                     >
-                      Book Now
+                      Book Service
                     </button>
                   </div>
                 </div>
@@ -424,31 +497,31 @@ export const HomePage: React.FC<HomePageProps> = ({ setCurrentPage, openLeadModa
           })}
         </div>
 
-        <div className="scroll-reveal text-center pt-12">
+        <div className="scroll-reveal text-center pt-6 sm:pt-8">
           <button
             onClick={() => navigateTo('services')}
-            className="inline-flex items-center space-x-2 px-8 py-3.5 rounded-xl glass-sapphire hover:bg-white/15 border border-white/20 text-sm font-extrabold text-white transition-all shadow-lg"
+            className="inline-flex items-center space-x-2 px-6 py-3 rounded-xl bg-white hover:bg-slate-50 border border-slate-300 text-xs sm:text-sm font-extrabold text-slate-900 transition-all shadow-md"
           >
             <span>Explore All 7 Services in Detail</span>
-            <ChevronRight className="w-4 h-4 text-[#00D4FF]" />
+            <ChevronRight className="w-4 h-4 text-[#00B4D8]" />
           </button>
         </div>
       </section>
 
       {/* ================= DYNAMIC ANIMATED 5-STEP GROWTH SYSTEM ================= */}
-      <section className="py-24 px-4 sm:px-6 lg:px-8 z-10 relative">
+      <section className="py-10 sm:py-14 px-4 sm:px-6 lg:px-8 z-10 relative">
         <div className="max-w-7xl mx-auto">
           
-          <div className="scroll-reveal text-center max-w-3xl mx-auto mb-14 space-y-4">
-            <div className="inline-flex items-center space-x-2 px-3.5 py-1.5 rounded-full bg-white/10 text-gradient-rainbow border border-white/15 text-xs font-black uppercase tracking-wider">
-              <Sparkles className="w-3.5 h-3.5 text-[#00E575]" />
-              <span>LIVE INTERACTIVE PIPELINE</span>
+          <div className="scroll-reveal text-center max-w-3xl mx-auto mb-6 sm:mb-8 space-y-2">
+            <div className="inline-flex items-center space-x-2 px-3 py-1 rounded-full bg-slate-100 text-gradient-rainbow border border-slate-200 text-xs font-black uppercase tracking-wider">
+              <Sparkles className="w-3.5 h-3.5 text-emerald-600" />
+              <span>5-STAGE GROWTH SYSTEM</span>
             </div>
-            <h2 className="text-3xl sm:text-5xl font-black text-white tracking-tight">
+            <h2 className="text-2xl sm:text-4xl font-black text-slate-900 tracking-tight">
               Our 5-Stage Growth System
             </h2>
-            <p className="text-slate-300 text-base max-w-2xl mx-auto">
-              We don't simply run ads. We build an automated lead generation machine. Watch the live interactive animation below or test the live lead flow simulation!
+            <p className="text-slate-600 text-xs sm:text-sm max-w-2xl mx-auto">
+              We don't simply run ads. We build an automated lead generation machine. Explore our 5-stage conversion pipeline below.
             </p>
           </div>
 
@@ -457,45 +530,45 @@ export const HomePage: React.FC<HomePageProps> = ({ setCurrentPage, openLeadModa
             <InteractiveGrowthSystem openLeadModal={openLeadModal} />
           </div>
 
-          <div className="scroll-reveal mt-12 text-center">
+          <div className="scroll-reveal mt-6 sm:mt-8 text-center">
             <button
               onClick={() => navigateTo('growth-system')}
-              className="inline-flex items-center space-x-2 px-8 py-3.5 rounded-xl bg-gradient-to-r from-[#FF2E93]/20 via-[#00D4FF]/20 to-[#00E575]/20 text-[#00D4FF] border border-[#00D4FF]/40 font-black text-sm hover:brightness-125 transition-all shadow-lg"
+              className="inline-flex items-center space-x-2 px-6 py-3 rounded-xl bg-white hover:bg-slate-50 text-slate-900 border border-slate-300 font-black text-xs sm:text-sm shadow-md transition-all"
             >
-              <span>View Full 3D Growth Funnel Specification</span>
-              <ArrowRight className="w-4 h-4" />
+              <span>View Full Growth Funnel Specification</span>
+              <ArrowRight className="w-4 h-4 text-[#00B4D8]" />
             </button>
           </div>
         </div>
       </section>
 
       {/* ================= SCROLL REVEAL: MONEY BACK GUARANTEE ================= */}
-      <section className="py-20 px-4 sm:px-6 lg:px-8 max-w-5xl mx-auto z-10 relative">
-        <div className="scroll-reveal relative p-8 sm:p-14 rounded-3xl rainbow-card border border-white/20 shadow-2xl text-center space-y-6">
-          <div className="inline-flex items-center space-x-2 px-4 py-1.5 rounded-full bg-emerald-500/20 text-emerald-300 text-xs font-black uppercase tracking-wider border border-emerald-500/40">
-            <ShieldCheck className="w-4 h-4 text-emerald-400" />
+      <section className="py-10 sm:py-14 px-4 sm:px-6 lg:px-8 max-w-5xl mx-auto z-10 relative">
+        <div className="scroll-reveal relative p-6 sm:p-10 rounded-3xl rainbow-card border border-slate-200 shadow-xl text-center space-y-4">
+          <div className="inline-flex items-center space-x-2 px-3 py-1 rounded-full bg-emerald-50 text-emerald-700 text-xs font-black uppercase tracking-wider border border-emerald-200">
+            <ShieldCheck className="w-4 h-4 text-emerald-600" />
             <span>Zero-Risk Guarantee</span>
           </div>
 
-          <h2 className="text-3xl sm:text-5xl font-black text-white tracking-tight">
+          <h2 className="text-2xl sm:text-4xl font-black text-slate-900 tracking-tight">
             NO LEADS? <span className="text-gradient-rainbow">MONEY-BACK GUARANTEE*</span>
           </h2>
 
-          <p className="max-w-2xl mx-auto text-sm sm:text-base text-slate-200 leading-relaxed">
+          <p className="max-w-2xl mx-auto text-xs sm:text-sm text-slate-600 leading-relaxed">
             We provide a Money-Back Guarantee on eligible packages where the agreed campaign requirements and Terms & Conditions are fully satisfied. We stand 100% behind our performance.
           </p>
 
-          <div className="flex flex-wrap items-center justify-center gap-4 text-xs text-slate-300 font-semibold">
+          <div className="flex flex-wrap items-center justify-center gap-4 text-xs text-slate-700 font-semibold">
             <span className="flex items-center space-x-1.5">
-              <CheckCircle2 className="w-4 h-4 text-emerald-400" />
+              <CheckCircle2 className="w-4 h-4 text-emerald-600" />
               <span>Agreed Campaign Duration</span>
             </span>
             <span className="flex items-center space-x-1.5">
-              <CheckCircle2 className="w-4 h-4 text-emerald-400" />
+              <CheckCircle2 className="w-4 h-4 text-emerald-600" />
               <span>Target Lead Criteria Met</span>
             </span>
             <span className="flex items-center space-x-1.5">
-              <CheckCircle2 className="w-4 h-4 text-emerald-400" />
+              <CheckCircle2 className="w-4 h-4 text-emerald-600" />
               <span>Transparent Eligibility Terms*</span>
             </span>
           </div>
@@ -503,13 +576,13 @@ export const HomePage: React.FC<HomePageProps> = ({ setCurrentPage, openLeadModa
           <div className="pt-2 flex flex-col sm:flex-row items-center justify-center gap-4">
             <button
               onClick={openLeadModal}
-              className="px-8 py-3.5 rounded-xl bg-gradient-to-r from-[#FF2E93] to-[#FFDE00] text-black font-black text-sm hover:brightness-110 shadow-xl shadow-pink-500/30 transition-all"
+              className="px-8 py-3.5 rounded-xl bg-gradient-to-r from-[#FF2E93] to-[#FFDE00] text-black font-black text-sm hover:brightness-110 shadow-md shadow-pink-500/20 transition-all"
             >
               Verify Package Eligibility
             </button>
             <button
               onClick={() => navigateTo('guarantee')}
-              className="px-6 py-3.5 rounded-xl text-slate-300 hover:text-white text-xs underline underline-offset-4"
+              className="px-6 py-3.5 rounded-xl text-slate-600 hover:text-slate-900 text-xs underline underline-offset-4 font-semibold"
             >
               Read Full Guarantee Policy
             </button>
@@ -517,95 +590,72 @@ export const HomePage: React.FC<HomePageProps> = ({ setCurrentPage, openLeadModa
         </div>
       </section>
 
-      {/* ================= SCROLL REVEAL: FOUNDER & WHY PILLOW DIGITAL ================= */}
-      <section className="py-20 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto z-10 relative">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-          
-          <div className="scroll-reveal-left space-y-6">
-            <div className="inline-flex items-center space-x-2 px-3.5 py-1.5 rounded-full bg-purple-500/20 text-purple-300 border border-purple-500/30 text-xs font-black uppercase tracking-wider">
-              <Award className="w-3.5 h-3.5" />
-              <span>Proven Track Record</span>
-            </div>
-            <h2 className="text-3xl sm:text-5xl font-black text-white tracking-tight">
-              Why Partner With Pillow Digital?
-            </h2>
-            <p className="text-slate-300 text-base leading-relaxed">
-              Our focus is not just running advertisements — it is sustainable business growth. We combine creative firepower with rigorous analytics to maximize your return on ad spend.
-            </p>
-
-            {/* Founder Profile Card with Image */}
-            <div className="p-6 rounded-3xl rainbow-card space-y-4">
-              <div className="flex items-center space-x-4">
-                <div className="relative flex-shrink-0">
-                  <img 
-                    src="/ragual.jpeg" 
-                    alt="A. Raghul - Founder" 
-                    className="w-20 h-24 sm:w-24 sm:h-28 rounded-2xl object-cover object-top border-2 border-[#00D4FF] shadow-xl"
-                  />
-                  <span className="absolute -bottom-2 -right-1 px-2 py-0.5 rounded-md bg-[#FFDE00] text-black font-black text-[10px]">
-                    4+ Yrs
-                  </span>
-                </div>
-                <div>
-                  <h4 className="text-xl font-black text-white">A. RAGHUL</h4>
-                  <p className="text-xs text-[#00D4FF] font-bold">Founder & Business Growth Consultant</p>
-                  <p className="text-xs text-slate-300">Pillow Digital • Operated under R GROUP</p>
-                </div>
-              </div>
-              <p className="text-xs text-slate-200 italic pt-2 border-t border-white/10">
-                "Our philosophy is simple: Deliver measurable sales inquiries and high-intent customers so your business scales with predictability."
-              </p>
-            </div>
+      {/* ================= SCROLL REVEAL: WHY PARTNER WITH PILLOW DIGITAL (9 PILLARS) ================= */}
+      <section className="py-10 sm:py-14 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto z-10 relative">
+        <div className="scroll-reveal text-center max-w-3xl mx-auto mb-6 sm:mb-8 space-y-2">
+          <div className="inline-flex items-center space-x-2 px-3 py-1 rounded-full bg-purple-50 text-purple-700 border border-purple-200 text-xs font-black uppercase tracking-wider">
+            <Award className="w-3.5 h-3.5 text-purple-600" />
+            <span>PROVEN TRACK RECORD</span>
           </div>
+          <h2 className="text-2xl sm:text-4xl font-black text-slate-900 tracking-tight">
+            Why Partner With <span className="text-gradient-rainbow">Pillow Digital?</span>
+          </h2>
+          <p className="text-slate-600 text-xs sm:text-sm max-w-2xl mx-auto">
+            Our focus is not just running advertisements — it is sustainable, high-ROI business growth backed by R GROUP.
+          </p>
+        </div>
 
-          {/* Checklist */}
-          <div className="scroll-reveal-right grid grid-cols-1 gap-3.5">
-            {whyChoosePoints.map((item, idx) => (
-              <div
-                key={idx}
-                className="flex items-center space-x-3.5 p-4 rounded-xl glass-sapphire border border-white/15 hover:border-[#00D4FF]/40 transition-all tilt-card"
-              >
-                <div className="w-7 h-7 rounded-full bg-emerald-500/20 border border-emerald-500/40 flex items-center justify-center flex-shrink-0">
-                  <CheckCircle2 className="w-4 h-4 text-emerald-400" />
-                </div>
-                <span className="text-sm font-bold text-white">
-                  {item}
-                </span>
+        {/* 9 Pillars Grid */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3.5 max-w-6xl mx-auto">
+          {whyChoosePoints.map((item, idx) => (
+            <div
+              key={idx}
+              className="flex items-center space-x-3 p-3.5 rounded-2xl bg-white border border-slate-200/90 hover:border-[#00D4FF]/60 hover:shadow-lg transition-all duration-300 tilt-card group"
+            >
+              <div className="w-7 h-7 rounded-xl bg-gradient-to-br from-emerald-50 to-emerald-100 border border-emerald-200 flex items-center justify-center flex-shrink-0 group-hover:scale-110 transition-transform">
+                <CheckCircle2 className="w-4 h-4 text-emerald-600" />
               </div>
-            ))}
-          </div>
-
+              <span className="text-xs sm:text-sm font-bold text-slate-800 group-hover:text-slate-900 transition-colors">
+                {item}
+              </span>
+            </div>
+          ))}
         </div>
       </section>
 
       {/* ================= SCROLL REVEAL: FINAL HIGH-CONVERSION CTA ================= */}
-      <section className="py-24 px-4 sm:px-6 lg:px-8 max-w-5xl mx-auto text-center z-10 relative">
-        <div className="scroll-reveal rainbow-card p-10 sm:p-16 space-y-8 relative overflow-hidden shadow-2xl">
-          <span className="text-xs font-black tracking-widest text-[#FFDE00] uppercase">
-            LET'S GROW YOUR BUSINESS
+      <section className="py-10 sm:py-14 px-4 sm:px-6 lg:px-8 max-w-5xl mx-auto text-center z-10 relative">
+        <div className="scroll-reveal dark-luxe-card p-6 sm:p-10 space-y-5 relative overflow-hidden shadow-2xl">
+          <div className="absolute -top-24 -left-24 w-72 h-72 bg-[#FF2E93]/20 rounded-full blur-3xl pointer-events-none" />
+          <div className="absolute -bottom-24 -right-24 w-72 h-72 bg-[#00D4FF]/20 rounded-full blur-3xl pointer-events-none" />
+          
+          <span className="inline-flex items-center space-x-2 px-3 py-1 rounded-full bg-white/10 border border-white/15 text-xs font-black tracking-widest text-[#FFDE00] uppercase">
+            <Sparkles className="w-3.5 h-3.5 text-[#FFDE00]" />
+            <span>LET'S GROW YOUR BUSINESS</span>
           </span>
-          <h2 className="text-3xl sm:text-5xl font-black text-white leading-tight">
+
+          <h2 className="text-2xl sm:text-4xl font-black text-white leading-tight">
             Your Business Needs Customers. <br />
             <span className="text-gradient-rainbow">We Build The Marketing System To Reach Them.</span>
           </h2>
 
-          <p className="max-w-xl mx-auto text-slate-200 text-sm sm:text-base font-medium">
-            Take the guesswork out of lead generation. Book a growth strategy session with A. Raghul today.
+          <p className="max-w-xl mx-auto text-slate-300 text-xs sm:text-sm font-medium leading-relaxed">
+            Take the guesswork out of lead generation. Book a growth strategy session with A. Raghul today and get daily WhatsApp leads.
           </p>
 
-          <div className="flex flex-col sm:flex-row items-center justify-center gap-4 pt-4">
+          <div className="flex flex-col sm:flex-row items-center justify-center gap-3 pt-2">
             <button
               onClick={openLeadModal}
-              className="w-full sm:w-auto px-9 py-4 rounded-xl bg-gradient-to-r from-[#FF2E93] via-[#FF8A00] via-[#FFDE00] via-[#00E575] via-[#00D4FF] to-[#845EC2] text-black font-black text-base shadow-2xl shadow-pink-500/30 hover:scale-105 active:scale-95 transition-all flex items-center justify-center space-x-2"
+              className="w-full sm:w-auto px-7 py-3 rounded-xl bg-gradient-to-r from-[#FF2E93] via-[#FF8A00] via-[#FFDE00] via-[#00E575] via-[#00D4FF] to-[#845EC2] text-black font-black text-sm shadow-xl shadow-pink-500/25 hover:scale-105 active:scale-95 transition-all flex items-center justify-center space-x-2"
             >
               <span>Schedule WhatsApp Consultation</span>
-              <ArrowRight className="w-5 h-5 text-black" />
+              <ArrowRight className="w-4 h-4 text-black" />
             </button>
             <a
-              href="https://wa.me/919999999999?text=Hi%20A.%20Raghul,%20I%20want%20to%20grow%20my%20business%20with%20Pillow%20Digital."
+              href={CONTACT_CONFIG.getWhatsAppUrl("Hi A. Raghul, I want to grow my business with Pillow Digital.")}
               target="_blank"
               rel="noopener noreferrer"
-              className="w-full sm:w-auto px-6 py-4 rounded-xl glass-sapphire hover:bg-white/15 text-white font-bold text-sm border border-white/20 transition-all flex items-center justify-center space-x-2"
+              className="w-full sm:w-auto px-6 py-3 rounded-xl bg-white/10 hover:bg-white/20 text-white font-bold text-xs sm:text-sm border border-white/20 backdrop-blur-md transition-all flex items-center justify-center space-x-2 shadow-sm"
             >
               <MessageCircle className="w-4 h-4 text-emerald-400" />
               <span>Direct WhatsApp Chat</span>

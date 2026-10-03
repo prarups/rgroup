@@ -9,6 +9,7 @@ import { AboutPage } from './pages/AboutPage';
 import { ContactPage } from './pages/ContactPage';
 import { GuaranteeTermsPage } from './pages/GuaranteeTermsPage';
 import { MessageCircle, ArrowUp } from 'lucide-react';
+import { CONTACT_CONFIG } from './config/contact';
 
 export function App() {
   const [currentPage, setCurrentPage] = useState<string>('home');
@@ -67,7 +68,13 @@ export function App() {
   };
 
   return (
-    <div className="min-h-screen bg-[#08080C] text-slate-100 flex flex-col justify-between selection:bg-[#00F0FF] selection:text-black">
+    <div className="min-h-screen text-slate-900 flex flex-col justify-between selection:bg-[#00D4FF] selection:text-white relative">
+      {/* Fixed Fullscreen Background Image for Entire Application */}
+      <div 
+        className="fixed inset-0 pointer-events-none z-0 bg-cover bg-top bg-no-repeat bg-fixed opacity-95"
+        style={{ backgroundImage: "url('/backgroud.png')" }}
+      />
+
       {/* Top Navigation */}
       <Navbar
         currentPage={currentPage}
@@ -76,7 +83,7 @@ export function App() {
       />
 
       {/* Main Page Content */}
-      <main className="flex-grow">
+      <main className="flex-grow relative z-10">
         {renderCurrentPage()}
       </main>
 
@@ -98,26 +105,26 @@ export function App() {
         {showScrollTop && (
           <button
             onClick={scrollToTop}
-            className="p-3 rounded-full glass-panel hover:bg-white/10 text-slate-300 hover:text-white border border-white/10 shadow-lg transition-all duration-300 hover:scale-110 active:scale-95"
+            className="p-3 rounded-full bg-white hover:bg-slate-100 text-slate-700 hover:text-slate-900 border border-slate-200 shadow-xl transition-all duration-300 hover:scale-110 active:scale-95"
             aria-label="Scroll to top"
           >
-            <ArrowUp className="w-5 h-5 text-[#00F0FF]" />
+            <ArrowUp className="w-5 h-5 text-[#00B4D8]" />
           </button>
         )}
 
         {/* Floating WhatsApp Live Button */}
         <a
-          href="https://wa.me/919999999999?text=Hi%20A.%20Raghul,%20I%20am%20interested%20in%20generating%20leads%20with%20Pillow%20Digital."
+          href={CONTACT_CONFIG.getWhatsAppUrl("Hi A. Raghul, I am interested in generating leads with Pillow Digital.")}
           target="_blank"
           rel="noopener noreferrer"
-          className="relative p-3.5 rounded-full bg-emerald-500 hover:bg-emerald-400 text-black shadow-xl shadow-emerald-500/30 transition-all duration-300 hover:scale-110 active:scale-95 group flex items-center justify-center"
+          className="relative p-3.5 rounded-full bg-emerald-500 hover:bg-emerald-400 text-white shadow-xl shadow-emerald-500/30 transition-all duration-300 hover:scale-110 active:scale-95 group flex items-center justify-center"
           aria-label="Chat on WhatsApp"
         >
           <span className="absolute -inset-1 rounded-full bg-emerald-400 opacity-40 animate-ping pointer-events-none" />
-          <MessageCircle className="w-6 h-6 text-black fill-black" />
+          <MessageCircle className="w-6 h-6 text-white fill-white" />
           
           {/* Tooltip on hover */}
-          <span className="absolute right-14 px-3 py-1.5 rounded-lg bg-[#0C0C14] text-white text-xs font-semibold whitespace-nowrap shadow-xl border border-white/10 opacity-0 group-hover:opacity-100 transition-opacity duration-200 pointer-events-none">
+          <span className="absolute right-14 px-3 py-1.5 rounded-lg bg-slate-900 text-white text-xs font-semibold whitespace-nowrap shadow-xl border border-slate-700 opacity-0 group-hover:opacity-100 transition-opacity duration-200 pointer-events-none">
             Chat with A. Raghul
           </span>
         </a>
