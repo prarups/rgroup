@@ -28,7 +28,7 @@ export const ServicesPage: React.FC<ServicesPageProps> = ({ openLeadModal }) => 
       icon: Megaphone,
       title: "Social Media Paid Advertising",
       subtitle: "Strategic Facebook & Instagram Advertising Campaigns",
-      image: "https://images.unsplash.com/photo-1611162617474-5b21e879e113?auto=format&fit=crop&w=800&q=80",
+      image: "/meta-ads.jpg",
       description: "We design, deploy, and continuously optimize high-converting Meta advertising campaigns. Every ad dollar is backed by thorough audience research and rapid creative testing to ensure maximum ROAS.",
       deliverables: [
         "Complete Meta Business Manager & Pixel integration",
@@ -195,37 +195,37 @@ export const ServicesPage: React.FC<ServicesPageProps> = ({ openLeadModal }) => 
                   </div>
 
                   <div>
-                    <h2 className="text-2xl sm:text-3xl font-black text-slate-900">
+                    <h2 className="text-2xl sm:text-3xl font-black text-slate-900 tracking-tight">
                       {service.title}
                     </h2>
-                    <p className="text-xs sm:text-sm font-bold text-[#00B4D8] mt-1">
+                    <p className="text-sm font-extrabold text-[#00B4D8] mt-1">
                       {service.subtitle}
                     </p>
                   </div>
 
-                  <p className="text-sm text-slate-600 leading-relaxed">
+                  <p className="text-sm sm:text-base text-slate-700 leading-relaxed font-medium">
                     {service.description}
                   </p>
 
-                  <div>
-                    <p className="text-xs font-semibold text-slate-600">
-                      <span className="text-slate-900 font-extrabold">Ideal For:</span> {service.idealFor}
+                  <div className="p-3 rounded-xl bg-slate-50 border border-slate-200/80">
+                    <p className="text-sm font-semibold text-slate-700">
+                      <span className="text-slate-950 font-black">Ideal For:</span> {service.idealFor}
                     </p>
                   </div>
 
                   <div className="pt-2 flex flex-wrap gap-3">
                     <button
                       onClick={openLeadModal}
-                      className="px-6 py-3 rounded-xl bg-gradient-to-r from-[#FF2E93] to-[#FF8A00] text-black font-black text-xs hover:brightness-110 shadow-md transition-all flex items-center space-x-2"
+                      className="px-6 py-3 rounded-xl bg-gradient-to-r from-[#FF2E93] to-[#FF8A00] text-black font-black text-xs sm:text-sm hover:brightness-110 shadow-md transition-all flex items-center space-x-2"
                     >
                       <span>Get Started with this Service</span>
-                      <ArrowRight className="w-3.5 h-3.5" />
+                      <ArrowRight className="w-4 h-4" />
                     </button>
                     <a
                       href={CONTACT_CONFIG.getWhatsAppUrl(`Hi A. Raghul, I am interested in your ${service.title} service.`)}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="px-4 py-3 rounded-xl bg-white hover:bg-slate-50 text-emerald-700 border border-emerald-300 text-xs font-extrabold transition-all flex items-center space-x-1.5 shadow-sm"
+                      className="px-5 py-3 rounded-xl bg-white hover:bg-slate-50 text-emerald-700 border border-emerald-300 text-xs sm:text-sm font-extrabold transition-all flex items-center space-x-2 shadow-sm"
                     >
                       <MessageCircle className="w-4 h-4 text-emerald-600" />
                       <span>WhatsApp Inquiry</span>
@@ -236,15 +236,15 @@ export const ServicesPage: React.FC<ServicesPageProps> = ({ openLeadModal }) => 
                 {/* Right Deliverables Card */}
                 <div className="lg:col-span-6 stat-card-lux p-6 sm:p-8 space-y-4 relative group">
                   <div className="absolute top-0 inset-x-0 h-1 bg-gradient-to-r from-[#FF8A00] via-[#00D4FF] to-[#00E575]" />
-                  <h3 className="text-xs font-black uppercase tracking-wider text-amber-600 flex items-center space-x-2">
+                  <h3 className="text-xs sm:text-sm font-black uppercase tracking-wider text-amber-600 flex items-center space-x-2">
                     <Zap className="w-4 h-4 text-amber-500" />
                     <span>Included Deliverables & Strategy</span>
                   </h3>
 
                   <ul className="space-y-3.5">
                     {service.deliverables.map((item, dIdx) => (
-                      <li key={dIdx} className="flex items-start space-x-3 text-sm text-slate-800 font-medium">
-                        <div className="w-5 h-5 rounded-full bg-emerald-50 border border-emerald-200 flex items-center justify-center flex-shrink-0 mt-0.5">
+                      <li key={dIdx} className="flex items-start space-x-3 text-sm sm:text-base text-slate-800 font-medium">
+                        <div className="w-5 h-5 rounded-full bg-emerald-50 border border-emerald-200 flex items-center justify-center flex-shrink-0 mt-0.5 shadow-xs">
                           <CheckCircle2 className="w-3.5 h-3.5 text-emerald-600" />
                         </div>
                         <span>{item}</span>
@@ -252,9 +252,9 @@ export const ServicesPage: React.FC<ServicesPageProps> = ({ openLeadModal }) => 
                     ))}
                   </ul>
 
-                  <div className="pt-4 border-t border-slate-200/90 flex items-center justify-between text-xs text-slate-500 font-medium">
+                  <div className="pt-4 border-t border-slate-200/90 flex items-center justify-between text-xs sm:text-sm text-slate-600 font-medium">
                     <span>Performance Focused System</span>
-                    <span className="text-[#00B4D8] font-black">100+ Campaigns Handled</span>
+                    <span className="text-[#0090FF] font-black">100+ Campaigns Handled</span>
                   </div>
                 </div>
 

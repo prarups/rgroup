@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { InteractiveGrowthSystem } from '../components/growth/InteractiveGrowthSystem';
+import { WhatsAppPhoneMockup } from '../components/home/WhatsAppPhoneMockup';
 import { useScrollReveal } from '../hooks/useScrollReveal';
 import { CONTACT_CONFIG } from '../config/contact';
 import { 
@@ -76,7 +77,7 @@ export const HomePage: React.FC<HomePageProps> = ({ setCurrentPage, openLeadModa
       title: "Social Media Paid Advertising",
       desc: "Strategic Facebook & Instagram advertising campaigns designed to reach your potential customers.",
       badge: "Meta Verified",
-      image: "https://images.unsplash.com/photo-1611162617474-5b21e879e113?auto=format&fit=crop&w=700&q=80",
+      image: "/meta-ads.jpg",
       tag: "Facebook & Instagram Ads"
     },
     {
@@ -187,26 +188,26 @@ export const HomePage: React.FC<HomePageProps> = ({ setCurrentPage, openLeadModa
 
                   {/* Top Left Live Badge */}
                   <div className="absolute top-3.5 left-3.5">
-                    <span className="px-3 py-1 rounded-full bg-slate-950/85 backdrop-blur-md text-emerald-400 font-black text-[11px] border border-emerald-500/40 shadow-lg flex items-center space-x-1.5">
+                    <span className="px-3 py-1.5 rounded-full bg-slate-950/90 backdrop-blur-md text-emerald-400 font-black text-xs border border-emerald-500/40 shadow-lg flex items-center space-x-1.5">
                       <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse" />
                       <span>DIRECT LEADS ARCHITECT</span>
                     </span>
                   </div>
 
                   {/* Bottom Info Card over Photo */}
-                  <div className="absolute bottom-3.5 inset-x-3.5 p-3 rounded-2xl bg-[#080E24]/90 backdrop-blur-md border border-white/10 text-center shadow-xl">
+                  <div className="absolute bottom-3.5 inset-x-3.5 p-3.5 rounded-2xl bg-[#080E24]/95 backdrop-blur-md border border-white/15 text-center shadow-xl">
                     <h3 className="text-xl sm:text-2xl font-black text-white tracking-wide">A. RAGHUL</h3>
-                    <p className="text-xs text-[#00D4FF] font-bold">Founder & Marketing Director</p>
-                    <p className="text-[10px] text-slate-300 font-semibold">Pillow Digital • Backed by R GROUP</p>
+                    <p className="text-xs sm:text-sm text-[#00D4FF] font-bold">Founder & Marketing Director</p>
+                    <p className="text-xs text-slate-300 font-medium">Pillow Digital • Backed by R GROUP</p>
                   </div>
                 </div>
               </div>
 
               {/* Experience Floating Badge */}
-              <div className="absolute -bottom-3.5 left-1/2 -translate-x-1/2 px-4 py-1.5 rounded-full bg-[#0A122E] text-white font-extrabold text-xs shadow-xl whitespace-nowrap border border-cyan-400/50 flex items-center space-x-1.5 z-20">
+              <div className="absolute -bottom-3.5 left-1/2 -translate-x-1/2 px-4 py-2 rounded-full bg-[#0A122E] text-white font-extrabold text-xs sm:text-sm shadow-xl whitespace-nowrap border border-cyan-400/50 flex items-center space-x-2 z-20">
                 <span className="text-[#00D4FF]">★</span>
                 <span>4+ Years Exp</span>
-                <span className="text-slate-500">•</span>
+                <span className="text-slate-400">•</span>
                 <span className="text-emerald-400">100+ Clients Handled</span>
               </div>
             </div>
@@ -229,31 +230,31 @@ export const HomePage: React.FC<HomePageProps> = ({ setCurrentPage, openLeadModa
               </span>
             </h1>
 
-            <p className="text-xs sm:text-sm text-slate-600 leading-relaxed font-normal">
-              Most business owners waste lakhs on generic agency ads that bring vanity likes, bot accounts, or people asking for freebies. At <strong className="text-slate-900 font-bold">Pillow Digital</strong> under <strong className="text-slate-900 font-bold">R GROUP</strong>, we build turnkey campaigns that deliver pre-qualified buyers <strong className="text-emerald-600 font-bold">directly to your WhatsApp</strong> every single day.
+            <p className="text-sm sm:text-base text-slate-700 leading-relaxed font-normal">
+              Most business owners waste lakhs on generic agency ads that bring vanity likes, bot accounts, or people asking for freebies. At <strong className="text-slate-950 font-bold">Pillow Digital</strong> under <strong className="text-slate-950 font-bold">R GROUP</strong>, we build turnkey campaigns that deliver pre-qualified buyers <strong className="text-emerald-700 font-bold">directly to your WhatsApp</strong> every single day.
             </p>
 
             {/* Quick Stats Grid with Cohesive Color System */}
-            <div className="grid grid-cols-2 sm:grid-cols-4 gap-2.5 pt-1">
-              <div className="p-3 rounded-2xl bg-blue-50/70 border border-blue-200/80 text-center relative overflow-hidden">
+            <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 pt-1">
+              <div className="p-3.5 rounded-2xl bg-blue-50/80 border border-blue-200 text-center relative overflow-hidden shadow-xs">
                 <div className="absolute top-0 inset-x-0 h-1 bg-[#0066FF]" />
-                <p className="text-xl font-black text-[#0066FF]">4+ Years</p>
-                <p className="text-[10px] text-slate-600 font-bold uppercase">Marketing Exp</p>
+                <p className="text-xl sm:text-2xl font-black text-[#0066FF]">4+ Years</p>
+                <p className="text-xs text-slate-700 font-bold uppercase mt-0.5">Marketing Exp</p>
               </div>
-              <div className="p-3 rounded-2xl bg-cyan-50/70 border border-cyan-200/80 text-center relative overflow-hidden">
+              <div className="p-3.5 rounded-2xl bg-cyan-50/80 border border-cyan-200 text-center relative overflow-hidden shadow-xs">
                 <div className="absolute top-0 inset-x-0 h-1 bg-[#00B4D8]" />
-                <p className="text-xl font-black text-[#0090FF]">100+</p>
-                <p className="text-[10px] text-slate-600 font-bold uppercase">Clients Handled</p>
+                <p className="text-xl sm:text-2xl font-black text-[#0090FF]">100+</p>
+                <p className="text-xs text-slate-700 font-bold uppercase mt-0.5">Clients Handled</p>
               </div>
-              <div className="p-3 rounded-2xl bg-emerald-50/70 border border-emerald-200/80 text-center relative overflow-hidden">
+              <div className="p-3.5 rounded-2xl bg-emerald-50/80 border border-emerald-200 text-center relative overflow-hidden shadow-xs">
                 <div className="absolute top-0 inset-x-0 h-1 bg-[#10B981]" />
-                <p className="text-xl font-black text-[#059669]">Daily</p>
-                <p className="text-[10px] text-slate-600 font-bold uppercase">WhatsApp Leads</p>
+                <p className="text-xl sm:text-2xl font-black text-[#059669]">Daily</p>
+                <p className="text-xs text-slate-700 font-bold uppercase mt-0.5">WhatsApp Leads</p>
               </div>
-              <div className="p-3 rounded-2xl bg-indigo-50/70 border border-indigo-200/80 text-center relative overflow-hidden">
+              <div className="p-3.5 rounded-2xl bg-indigo-50/80 border border-indigo-200 text-center relative overflow-hidden shadow-xs">
                 <div className="absolute top-0 inset-x-0 h-1 bg-[#6366F1]" />
-                <p className="text-xl font-black text-[#4F46E5]">100%</p>
-                <p className="text-[10px] text-slate-600 font-bold uppercase">Guarantee*</p>
+                <p className="text-xl sm:text-2xl font-black text-[#4F46E5]">100%</p>
+                <p className="text-xs text-slate-700 font-bold uppercase mt-0.5">Guarantee*</p>
               </div>
             </div>
 
@@ -307,91 +308,29 @@ export const HomePage: React.FC<HomePageProps> = ({ setCurrentPage, openLeadModa
                 alt="Wasted Marketing Budgets" 
                 className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500 filter grayscale contrast-125"
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-slate-900/90 via-slate-900/50 to-transparent flex items-end p-5">
-                <p className="text-xs text-rose-300 font-extrabold flex items-center space-x-2">
-                  <span className="text-rose-400 text-sm">⚠️</span>
+              <div className="absolute inset-0 bg-gradient-to-t from-slate-900/95 via-slate-900/50 to-transparent flex items-end p-5">
+                <p className="text-xs sm:text-sm text-rose-200 font-extrabold flex items-center space-x-2">
+                  <span className="text-rose-400 text-base">⚠️</span>
                   <span>Unqualified ad boosting leads to high ad spend with zero paying clients</span>
                 </p>
               </div>
             </div>
 
-            <div className="space-y-2.5">
-              <div className="flex items-center space-x-3 p-3 rounded-xl bg-rose-50 border border-rose-200 text-sm text-slate-700">
-                <span className="text-rose-600 font-extrabold">✕</span>
+            <div className="space-y-3">
+              <div className="flex items-center space-x-3 p-3.5 rounded-2xl bg-rose-50/90 border border-rose-200 text-sm sm:text-base font-semibold text-slate-800 shadow-xs">
+                <span className="text-rose-600 font-black text-base">✕</span>
                 <span>Boosting posts blindly without customer purchase intent segmentation</span>
               </div>
-              <div className="flex items-center space-x-3 p-3 rounded-xl bg-rose-50 border border-rose-200 text-sm text-slate-700">
-                <span className="text-rose-600 font-extrabold">✕</span>
+              <div className="flex items-center space-x-3 p-3.5 rounded-2xl bg-rose-50/90 border border-rose-200 text-sm sm:text-base font-semibold text-slate-800 shadow-xs">
+                <span className="text-rose-600 font-black text-base">✕</span>
                 <span>No instant WhatsApp routing leading to cold, lost leads</span>
               </div>
             </div>
           </div>
 
-          {/* Right: The Solution with High-Impact Image & Live WhatsApp Chat Mockup */}
-          <div className="scroll-reveal-right dark-luxe-card p-6 sm:p-8 space-y-6 shadow-2xl">
-            {/* Visual Image with WhatsApp Chat Overlay */}
-            <div className="relative rounded-2xl overflow-hidden border border-[#00E575]/40 h-64 group bg-slate-950">
-              <img 
-                src="https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&w=800&q=80" 
-                alt="High-Intent WhatsApp Customer Deals" 
-                className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500 opacity-60"
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/40 to-transparent" />
-              
-              {/* Floating Real-Time WhatsApp Lead Notification */}
-              <div className="absolute inset-x-4 bottom-4 p-3.5 rounded-2xl bg-slate-900/95 border border-emerald-500/60 backdrop-blur-md shadow-2xl space-y-2">
-                <div className="flex items-center justify-between text-xs">
-                  <div className="flex items-center space-x-2">
-                    <span className="w-2.5 h-2.5 rounded-full bg-emerald-400 animate-ping" />
-                    <span className="font-extrabold text-emerald-400 flex items-center">
-                      <MessageCircle className="w-3.5 h-3.5 mr-1 text-emerald-400" />
-                      WhatsApp Business Live
-                    </span>
-                  </div>
-                  <span className="text-[10px] text-slate-400">Just now</span>
-                </div>
-                <p className="text-xs font-bold text-white leading-snug">
-                  "Hi A. Raghul! Saw your ad. We want 50+ quality leads for our clinic this week."
-                </p>
-                <div className="flex items-center justify-between pt-1 border-t border-slate-700/60 text-[10px] text-slate-300">
-                  <span className="text-emerald-400 font-extrabold">✓✓ Delivered to Your Phone</span>
-                  <span className="text-amber-400 font-black">Pre-Qualified Buyer</span>
-                </div>
-              </div>
-
-              <div className="absolute top-3 left-3">
-                <span className="px-3 py-1 rounded-lg bg-emerald-500 text-slate-950 font-black text-xs shadow-xl">
-                  ✓ High-Intent Deals Closing Daily on WhatsApp
-                </span>
-              </div>
-            </div>
-
-            <div className="space-y-3">
-              <h3 className="text-2xl sm:text-3xl font-black text-white">
-                Data-Driven Paid Social & Instant WhatsApp Pipeline
-              </h3>
-              <p className="text-sm text-slate-300 leading-relaxed">
-                We build a turnkey lead-generation system designed around your business goals and target buyers under the trusted banner of R GROUP.
-              </p>
-            </div>
-
-            <div className="space-y-2.5">
-              <div className="flex items-start space-x-3 p-3 rounded-xl bg-white/5 border border-emerald-500/30 text-sm text-slate-200">
-                <CheckCircle2 className="w-5 h-5 text-emerald-400 flex-shrink-0 mt-0.5" />
-                <span>Laser-targeted Meta Ads aimed at paying customers in your location.</span>
-              </div>
-              <div className="flex items-start space-x-3 p-3 rounded-xl bg-white/5 border border-emerald-500/30 text-sm text-slate-200">
-                <CheckCircle2 className="w-5 h-5 text-emerald-400 flex-shrink-0 mt-0.5" />
-                <span>Enquiries delivered straight to WhatsApp so you can close deals instantly.</span>
-              </div>
-            </div>
-
-            <button
-              onClick={openLeadModal}
-              className="w-full py-4 bg-gradient-to-r from-[#FF2E93] via-[#FFDE00] via-[#00E575] to-[#00D4FF] text-black font-black text-sm rounded-xl hover:brightness-110 active:scale-95 transition-all shadow-lg shadow-emerald-500/20"
-            >
-              Start Getting Daily Leads Now
-            </button>
+          {/* Right: The Solution with Live Animated WhatsApp Mobile Simulator */}
+          <div className="scroll-reveal-right flex flex-col items-center justify-center">
+            <WhatsAppPhoneMockup openLeadModal={openLeadModal} />
           </div>
 
         </div>
@@ -432,61 +371,61 @@ export const HomePage: React.FC<HomePageProps> = ({ setCurrentPage, openLeadModa
             return (
               <div
                 key={idx}
-                className={`scroll-reveal ${delayClass} rainbow-card tilt-card overflow-hidden flex flex-col justify-between group shadow-lg hover:shadow-2xl transition-all duration-300`}
+                className={`scroll-reveal ${delayClass} rainbow-card tilt-card overflow-hidden flex flex-col justify-between group shadow-xl hover:shadow-2xl transition-all duration-300 bg-white border border-slate-200/90 rounded-3xl ${idx === 6 ? 'md:col-span-2 lg:col-span-1 lg:col-start-2' : ''}`}
               >
                 {/* Visual Service Image */}
-                <div className="relative h-48 w-full overflow-hidden">
+                <div className="relative h-52 w-full overflow-hidden bg-slate-900">
                   <img 
                     src={srv.image} 
                     alt={srv.title} 
                     className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" 
                   />
-                  <div className="absolute inset-0 bg-gradient-to-t from-slate-950/85 via-slate-900/30 to-transparent" />
+                  <div className="absolute inset-0 bg-gradient-to-t from-slate-950/90 via-slate-900/40 to-transparent" />
                   
                   {/* Badge & Icon on Image */}
                   <div className="absolute top-3.5 left-3.5 right-3.5 flex items-center justify-between">
-                    <span className="text-[11px] font-black px-3 py-1 rounded-full bg-slate-950/80 text-white backdrop-blur-md border border-white/20 shadow-md">
+                    <span className="text-xs font-black px-3.5 py-1.5 rounded-full bg-slate-950/85 text-white backdrop-blur-md border border-white/20 shadow-md">
                       {srv.badge}
                     </span>
-                    <div className="w-10 h-10 rounded-xl bg-slate-950/80 backdrop-blur-md border border-white/20 flex items-center justify-center shadow-lg group-hover:rotate-6 transition-transform">
+                    <div className="w-10 h-10 rounded-xl bg-slate-950/85 backdrop-blur-md border border-white/20 flex items-center justify-center shadow-lg group-hover:rotate-6 transition-transform">
                       <Icon className={`w-5 h-5 ${currentAccent.iconColor}`} />
                     </div>
                   </div>
 
-                  <div className="absolute bottom-3 left-4">
-                    <span className="text-[11px] font-black text-[#FFDE00] uppercase tracking-wider drop-shadow-md">
+                  <div className="absolute bottom-3.5 left-4">
+                    <span className="text-xs font-black text-amber-300 px-3 py-1 rounded-lg bg-slate-950/85 backdrop-blur-md border border-amber-400/25 uppercase tracking-wider shadow-sm">
                       {srv.tag}
                     </span>
                   </div>
                 </div>
 
                 {/* Content */}
-                <div className="p-6 space-y-4 flex-grow flex flex-col justify-between">
-                  <div className="space-y-2">
+                <div className="p-6 sm:p-7 space-y-4 flex-grow flex flex-col justify-between bg-white">
+                  <div className="space-y-3">
                     <div className="flex items-center space-x-2">
-                      <span className={`text-[10px] font-black px-2.5 py-0.5 rounded-full border ${currentAccent.tagBg}`}>
+                      <span className={`text-xs font-extrabold px-3 py-1 rounded-full border shadow-xs ${currentAccent.tagBg}`}>
                         Service 0{idx + 1}
                       </span>
                     </div>
-                    <h3 className="text-xl font-black text-slate-900 group-hover:text-gradient-rainbow transition-colors">
+                    <h3 className="text-xl sm:text-2xl font-black text-slate-900 group-hover:text-gradient-rainbow transition-colors tracking-tight leading-snug">
                       {srv.title}
                     </h3>
-                    <p className="text-xs text-slate-600 leading-relaxed font-normal">
+                    <p className="text-sm sm:text-[15px] text-slate-700 leading-relaxed font-medium">
                       {srv.desc}
                     </p>
                   </div>
 
-                  <div className="pt-4 mt-4 border-t border-slate-200/90 flex items-center justify-between">
+                  <div className="pt-4 mt-4 border-t border-slate-100 flex items-center justify-between">
                     <button
                       onClick={() => navigateTo('services')}
-                      className="text-xs font-bold text-slate-600 group-hover:text-slate-900 flex items-center space-x-1.5 transition-colors"
+                      className="text-sm font-extrabold text-slate-700 hover:text-cyan-600 flex items-center space-x-1.5 transition-colors"
                     >
                       <span>Deliverables</span>
-                      <ArrowRight className="w-3.5 h-3.5 group-hover:translate-x-1.5 transition-transform" />
+                      <ArrowRight className="w-4 h-4 group-hover:translate-x-1.5 transition-transform" />
                     </button>
                     <button
                       onClick={openLeadModal}
-                      className="text-xs font-black px-3.5 py-1.5 rounded-lg bg-slate-100 hover:bg-gradient-to-r hover:from-[#FF2E93] hover:to-[#00D4FF] hover:text-black text-slate-800 transition-all shadow-sm"
+                      className="text-xs sm:text-sm font-black px-4 py-2 rounded-xl bg-slate-900 text-white hover:bg-gradient-to-r hover:from-[#FF2E93] hover:to-[#00D4FF] hover:text-black transition-all shadow-md active:scale-95"
                     >
                       Book Service
                     </button>
@@ -520,7 +459,7 @@ export const HomePage: React.FC<HomePageProps> = ({ setCurrentPage, openLeadModa
             <h2 className="text-2xl sm:text-4xl font-black text-slate-900 tracking-tight">
               Our 5-Stage Growth System
             </h2>
-            <p className="text-slate-600 text-xs sm:text-sm max-w-2xl mx-auto">
+            <p className="text-slate-600 text-sm sm:text-base max-w-2xl mx-auto font-medium">
               We don't simply run ads. We build an automated lead generation machine. Explore our 5-stage conversion pipeline below.
             </p>
           </div>
@@ -544,8 +483,8 @@ export const HomePage: React.FC<HomePageProps> = ({ setCurrentPage, openLeadModa
 
       {/* ================= SCROLL REVEAL: MONEY BACK GUARANTEE ================= */}
       <section className="py-10 sm:py-14 px-4 sm:px-6 lg:px-8 max-w-5xl mx-auto z-10 relative">
-        <div className="scroll-reveal relative p-6 sm:p-10 rounded-3xl rainbow-card border border-slate-200 shadow-xl text-center space-y-4">
-          <div className="inline-flex items-center space-x-2 px-3 py-1 rounded-full bg-emerald-50 text-emerald-700 text-xs font-black uppercase tracking-wider border border-emerald-200">
+        <div className="scroll-reveal relative p-6 sm:p-10 rounded-3xl rainbow-card border border-slate-200/90 shadow-2xl text-center space-y-5 bg-white">
+          <div className="inline-flex items-center space-x-2 px-3.5 py-1.5 rounded-full bg-emerald-50 text-emerald-700 text-xs font-black uppercase tracking-wider border border-emerald-200">
             <ShieldCheck className="w-4 h-4 text-emerald-600" />
             <span>Zero-Risk Guarantee</span>
           </div>
@@ -554,20 +493,20 @@ export const HomePage: React.FC<HomePageProps> = ({ setCurrentPage, openLeadModa
             NO LEADS? <span className="text-gradient-rainbow">MONEY-BACK GUARANTEE*</span>
           </h2>
 
-          <p className="max-w-2xl mx-auto text-xs sm:text-sm text-slate-600 leading-relaxed">
+          <p className="max-w-2xl mx-auto text-sm sm:text-base text-slate-700 leading-relaxed font-medium">
             We provide a Money-Back Guarantee on eligible packages where the agreed campaign requirements and Terms & Conditions are fully satisfied. We stand 100% behind our performance.
           </p>
 
-          <div className="flex flex-wrap items-center justify-center gap-4 text-xs text-slate-700 font-semibold">
-            <span className="flex items-center space-x-1.5">
+          <div className="flex flex-wrap items-center justify-center gap-5 text-sm text-slate-800 font-bold">
+            <span className="flex items-center space-x-2">
               <CheckCircle2 className="w-4 h-4 text-emerald-600" />
               <span>Agreed Campaign Duration</span>
             </span>
-            <span className="flex items-center space-x-1.5">
+            <span className="flex items-center space-x-2">
               <CheckCircle2 className="w-4 h-4 text-emerald-600" />
               <span>Target Lead Criteria Met</span>
             </span>
-            <span className="flex items-center space-x-1.5">
+            <span className="flex items-center space-x-2">
               <CheckCircle2 className="w-4 h-4 text-emerald-600" />
               <span>Transparent Eligibility Terms*</span>
             </span>
@@ -582,7 +521,7 @@ export const HomePage: React.FC<HomePageProps> = ({ setCurrentPage, openLeadModa
             </button>
             <button
               onClick={() => navigateTo('guarantee')}
-              className="px-6 py-3.5 rounded-xl text-slate-600 hover:text-slate-900 text-xs underline underline-offset-4 font-semibold"
+              className="px-6 py-3.5 rounded-xl text-slate-600 hover:text-slate-900 text-xs sm:text-sm underline underline-offset-4 font-semibold"
             >
               Read Full Guarantee Policy
             </button>
@@ -600,22 +539,22 @@ export const HomePage: React.FC<HomePageProps> = ({ setCurrentPage, openLeadModa
           <h2 className="text-2xl sm:text-4xl font-black text-slate-900 tracking-tight">
             Why Partner With <span className="text-gradient-rainbow">Pillow Digital?</span>
           </h2>
-          <p className="text-slate-600 text-xs sm:text-sm max-w-2xl mx-auto">
+          <p className="text-slate-600 text-sm sm:text-base max-w-2xl mx-auto font-medium">
             Our focus is not just running advertisements — it is sustainable, high-ROI business growth backed by R GROUP.
           </p>
         </div>
 
         {/* 9 Pillars Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3.5 max-w-6xl mx-auto">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 max-w-6xl mx-auto">
           {whyChoosePoints.map((item, idx) => (
             <div
               key={idx}
-              className="flex items-center space-x-3 p-3.5 rounded-2xl bg-white border border-slate-200/90 hover:border-[#00D4FF]/60 hover:shadow-lg transition-all duration-300 tilt-card group"
+              className="flex items-center space-x-3.5 p-4 rounded-2xl bg-white border border-slate-200/90 hover:border-[#00D4FF]/60 hover:shadow-xl transition-all duration-300 tilt-card group"
             >
-              <div className="w-7 h-7 rounded-xl bg-gradient-to-br from-emerald-50 to-emerald-100 border border-emerald-200 flex items-center justify-center flex-shrink-0 group-hover:scale-110 transition-transform">
+              <div className="w-8 h-8 rounded-xl bg-gradient-to-br from-emerald-50 to-emerald-100 border border-emerald-200 flex items-center justify-center flex-shrink-0 group-hover:scale-110 transition-transform shadow-xs">
                 <CheckCircle2 className="w-4 h-4 text-emerald-600" />
               </div>
-              <span className="text-xs sm:text-sm font-bold text-slate-800 group-hover:text-slate-900 transition-colors">
+              <span className="text-sm sm:text-base font-bold text-slate-800 group-hover:text-slate-950 transition-colors">
                 {item}
               </span>
             </div>
@@ -639,14 +578,14 @@ export const HomePage: React.FC<HomePageProps> = ({ setCurrentPage, openLeadModa
             <span className="text-gradient-rainbow">We Build The Marketing System To Reach Them.</span>
           </h2>
 
-          <p className="max-w-xl mx-auto text-slate-300 text-xs sm:text-sm font-medium leading-relaxed">
+          <p className="max-w-xl mx-auto text-slate-200 text-sm sm:text-base font-medium leading-relaxed">
             Take the guesswork out of lead generation. Book a growth strategy session with A. Raghul today and get daily WhatsApp leads.
           </p>
 
           <div className="flex flex-col sm:flex-row items-center justify-center gap-3 pt-2">
             <button
               onClick={openLeadModal}
-              className="w-full sm:w-auto px-7 py-3 rounded-xl bg-gradient-to-r from-[#FF2E93] via-[#FF8A00] via-[#FFDE00] via-[#00E575] via-[#00D4FF] to-[#845EC2] text-black font-black text-sm shadow-xl shadow-pink-500/25 hover:scale-105 active:scale-95 transition-all flex items-center justify-center space-x-2"
+              className="w-full sm:w-auto px-7 py-3.5 rounded-xl bg-gradient-to-r from-[#FF2E93] via-[#FF8A00] via-[#FFDE00] via-[#00E575] via-[#00D4FF] to-[#845EC2] text-black font-black text-sm sm:text-base shadow-xl shadow-pink-500/25 hover:scale-105 active:scale-95 transition-all flex items-center justify-center space-x-2"
             >
               <span>Schedule WhatsApp Consultation</span>
               <ArrowRight className="w-4 h-4 text-black" />
@@ -655,7 +594,7 @@ export const HomePage: React.FC<HomePageProps> = ({ setCurrentPage, openLeadModa
               href={CONTACT_CONFIG.getWhatsAppUrl("Hi A. Raghul, I want to grow my business with Pillow Digital.")}
               target="_blank"
               rel="noopener noreferrer"
-              className="w-full sm:w-auto px-6 py-3 rounded-xl bg-white/10 hover:bg-white/20 text-white font-bold text-xs sm:text-sm border border-white/20 backdrop-blur-md transition-all flex items-center justify-center space-x-2 shadow-sm"
+              className="w-full sm:w-auto px-6 py-3.5 rounded-xl bg-white/10 hover:bg-white/20 text-white font-bold text-xs sm:text-sm border border-white/20 backdrop-blur-md transition-all flex items-center justify-center space-x-2 shadow-sm"
             >
               <MessageCircle className="w-4 h-4 text-emerald-400" />
               <span>Direct WhatsApp Chat</span>

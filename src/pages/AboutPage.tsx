@@ -172,8 +172,8 @@ export const AboutPage: React.FC<AboutPageProps> = ({ openLeadModal }) => {
             <div className="w-12 h-12 rounded-2xl bg-cyan-50 border border-cyan-200 flex items-center justify-center shadow-sm group-hover:scale-110 transition-transform">
               <Target className="w-6 h-6 text-[#00B4D8]" />
             </div>
-            <h4 className="text-lg font-black text-slate-900 group-hover:text-[#00B4D8] transition-colors">Precision Targeting</h4>
-            <p className="text-xs text-slate-600 leading-relaxed font-normal">
+            <h4 className="text-xl font-black text-slate-900 group-hover:text-[#00B4D8] transition-colors">Precision Targeting</h4>
+            <p className="text-sm sm:text-base text-slate-700 leading-relaxed font-medium">
               We never blast ads to generalized audiences. We dissect demographics, locations, and buyer triggers to make sure only high-intent leads see your brand.
             </p>
           </div>
@@ -182,8 +182,8 @@ export const AboutPage: React.FC<AboutPageProps> = ({ openLeadModal }) => {
             <div className="w-12 h-12 rounded-2xl bg-purple-50 border border-purple-200 flex items-center justify-center shadow-sm group-hover:scale-110 transition-transform">
               <TrendingUp className="w-6 h-6 text-[#845EC2]" />
             </div>
-            <h4 className="text-lg font-black text-slate-900 group-hover:text-[#845EC2] transition-colors">Growth-First Mindset</h4>
-            <p className="text-xs text-slate-600 leading-relaxed font-normal">
+            <h4 className="text-xl font-black text-slate-900 group-hover:text-[#845EC2] transition-colors">Growth-First Mindset</h4>
+            <p className="text-sm sm:text-base text-slate-700 leading-relaxed font-medium">
               Impressions don't pay business salaries. We measure our success purely on qualified leads delivered and the resulting business growth.
             </p>
           </div>
@@ -192,8 +192,8 @@ export const AboutPage: React.FC<AboutPageProps> = ({ openLeadModal }) => {
             <div className="w-12 h-12 rounded-2xl bg-emerald-50 border border-emerald-200 flex items-center justify-center shadow-sm group-hover:scale-110 transition-transform">
               <ShieldCheck className="w-6 h-6 text-emerald-600" />
             </div>
-            <h4 className="text-lg font-black text-slate-900 group-hover:text-emerald-600 transition-colors">Ethical Accountability</h4>
-            <p className="text-xs text-slate-600 leading-relaxed font-normal">
+            <h4 className="text-xl font-black text-slate-900 group-hover:text-emerald-600 transition-colors">Ethical Accountability</h4>
+            <p className="text-sm sm:text-base text-slate-700 leading-relaxed font-medium">
               We offer our Money-Back Guarantee on eligible packages because we believe in genuine accountability and respect our clients' investment.
             </p>
           </div>
@@ -202,8 +202,8 @@ export const AboutPage: React.FC<AboutPageProps> = ({ openLeadModal }) => {
             <div className="w-12 h-12 rounded-2xl bg-blue-50 border border-blue-200 flex items-center justify-center shadow-sm group-hover:scale-110 transition-transform">
               <Building className="w-6 h-6 text-blue-600" />
             </div>
-            <h4 className="text-lg font-black text-slate-900 group-hover:text-blue-600 transition-colors">Backed by R GROUP</h4>
-            <p className="text-xs text-slate-600 leading-relaxed font-normal">
+            <h4 className="text-xl font-black text-slate-900 group-hover:text-blue-600 transition-colors">Backed by R GROUP</h4>
+            <p className="text-sm sm:text-base text-slate-700 leading-relaxed font-medium">
               Operating with the trust, discipline, and standards of R GROUP, building long-term business partnerships that last for years.
             </p>
           </div>
