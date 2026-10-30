@@ -97,9 +97,14 @@ export const WhatsAppPhoneMockup: React.FC<WhatsAppPhoneMockupProps> = ({ openLe
   const [isSoundEnabled, setIsSoundEnabled] = useState(false);
   const chatScrollRef = useRef<HTMLDivElement>(null);
 
+  const isSoundEnabledRef = useRef(isSoundEnabled);
+  useEffect(() => {
+    isSoundEnabledRef.current = isSoundEnabled;
+  }, [isSoundEnabled]);
+
   // Soft Web Audio notification chime
   const playNotificationChime = () => {
-    if (!isSoundEnabled) return;
+    if (!isSoundEnabledRef.current) return;
     try {
       const ctx = new (window.AudioContext || (window as any).webkitAudioContext)();
       const osc = ctx.createOscillator();
@@ -123,36 +128,38 @@ export const WhatsAppPhoneMockup: React.FC<WhatsAppPhoneMockupProps> = ({ openLe
     const interval = setInterval(() => {
       setActiveLeadIndex((prevIndex) => {
         const nextIndex = (prevIndex + 1) % mockLeads.length;
-        const newLead = {
-          ...mockLeads[nextIndex],
-          leadNumber: leadCounter + 1,
-          time: new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })
-        };
 
-        setLeadCounter((prev) => prev + 1);
+        setLeadCounter((prevCounter) => {
+          const currentCounter = prevCounter + 1;
+          const newLead = {
+            ...mockLeads[nextIndex],
+            leadNumber: currentCounter,
+            time: new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })
+          };
+
+          setVisibleMessages((prev) => {
+            const updated = [...prev, newLead];
+            // Keep max 4 visible to fit inside smartphone screen
+            return updated.length > 4 ? updated.slice(updated.length - 4) : updated;
+          });
+
+          return currentCounter;
+        });
+
         setIsNotifying(true);
         playNotificationChime();
 
-        setVisibleMessages((prev) => {
-          const updated = [...prev, newLead];
-          // Keep max 4 visible to fit inside smartphone screen
-          if (updated.length > 4) {
-            return updated.slice(updated.length - 4);
-          }
-          return updated;
-        });
-
-        // Hide notification push alert after 2.5s
+        // Hide notification push alert after 2.2s
         setTimeout(() => {
           setIsNotifying(false);
         }, 2200);
 
         return nextIndex;
       });
-    }, 4000);
+    }, 4500);
 
     return () => clearInterval(interval);
-  }, [leadCounter, isSoundEnabled]);
+  }, []);
 
   // Auto scroll chat to bottom when new lead arrives
   useEffect(() => {

@@ -1,15 +1,17 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, lazy, Suspense } from 'react';
 import { Navbar } from './components/common/Navbar';
 import { Footer } from './components/common/Footer';
 import { LeadModal } from './components/common/LeadModal';
 import { HomePage } from './pages/HomePage';
-import { ServicesPage } from './pages/ServicesPage';
-import { GrowthSystemPage } from './pages/GrowthSystemPage';
-import { AboutPage } from './pages/AboutPage';
-import { ContactPage } from './pages/ContactPage';
-import { GuaranteeTermsPage } from './pages/GuaranteeTermsPage';
 import { PhoneCall, ArrowUp } from 'lucide-react';
 import { CONTACT_CONFIG } from './config/contact';
+
+// Lazy load non-home pages so Three.js and secondary pages don't bloat initial load
+const ServicesPage = lazy(() => import('./pages/ServicesPage').then(m => ({ default: m.ServicesPage })));
+const GrowthSystemPage = lazy(() => import('./pages/GrowthSystemPage').then(m => ({ default: m.GrowthSystemPage })));
+const AboutPage = lazy(() => import('./pages/AboutPage').then(m => ({ default: m.AboutPage })));
+const ContactPage = lazy(() => import('./pages/ContactPage').then(m => ({ default: m.ContactPage })));
+const GuaranteeTermsPage = lazy(() => import('./pages/GuaranteeTermsPage').then(m => ({ default: m.GuaranteeTermsPage })));
 
 const WhatsAppIcon = ({ className = "w-6 h-6" }: { className?: string }) => (
   <svg 
@@ -62,15 +64,35 @@ export function App() {
   const renderCurrentPage = () => {
     switch (currentPage) {
       case 'services':
-        return <ServicesPage openLeadModal={() => setIsModalOpen(true)} />;
+        return (
+          <Suspense fallback={<div className="min-h-[60vh] flex items-center justify-center"><div className="w-8 h-8 border-4 border-cyan-400 border-t-transparent rounded-full animate-spin" /></div>}>
+            <ServicesPage openLeadModal={() => setIsModalOpen(true)} />
+          </Suspense>
+        );
       case 'growth-system':
-        return <GrowthSystemPage openLeadModal={() => setIsModalOpen(true)} />;
+        return (
+          <Suspense fallback={<div className="min-h-[60vh] flex items-center justify-center"><div className="w-8 h-8 border-4 border-cyan-400 border-t-transparent rounded-full animate-spin" /></div>}>
+            <GrowthSystemPage openLeadModal={() => setIsModalOpen(true)} />
+          </Suspense>
+        );
       case 'about':
-        return <AboutPage openLeadModal={() => setIsModalOpen(true)} />;
+        return (
+          <Suspense fallback={<div className="min-h-[60vh] flex items-center justify-center"><div className="w-8 h-8 border-4 border-cyan-400 border-t-transparent rounded-full animate-spin" /></div>}>
+            <AboutPage openLeadModal={() => setIsModalOpen(true)} />
+          </Suspense>
+        );
       case 'guarantee':
-        return <GuaranteeTermsPage openLeadModal={() => setIsModalOpen(true)} />;
+        return (
+          <Suspense fallback={<div className="min-h-[60vh] flex items-center justify-center"><div className="w-8 h-8 border-4 border-cyan-400 border-t-transparent rounded-full animate-spin" /></div>}>
+            <GuaranteeTermsPage openLeadModal={() => setIsModalOpen(true)} />
+          </Suspense>
+        );
       case 'contact':
-        return <ContactPage />;
+        return (
+          <Suspense fallback={<div className="min-h-[60vh] flex items-center justify-center"><div className="w-8 h-8 border-4 border-cyan-400 border-t-transparent rounded-full animate-spin" /></div>}>
+            <ContactPage />
+          </Suspense>
+        );
       case 'home':
       default:
         return <HomePage setCurrentPage={navigateToPage} openLeadModal={() => setIsModalOpen(true)} />;
@@ -79,10 +101,10 @@ export function App() {
 
   return (
     <div className="min-h-screen text-slate-900 flex flex-col justify-between selection:bg-[#00D4FF] selection:text-white relative">
-      {/* Fixed Fullscreen Background Image for Entire Application */}
+      {/* High-performance Fixed Background (no bg-fixed repaint bottleneck) */}
       <div 
-        className="fixed inset-0 pointer-events-none z-0 bg-cover bg-top bg-no-repeat bg-fixed opacity-95"
-        style={{ backgroundImage: "url('/backgroud.png')" }}
+        className="fixed inset-0 pointer-events-none z-0 bg-cover bg-top bg-no-repeat opacity-95 transform-gpu"
+        style={{ backgroundImage: "url('./backgroud.png')" }}
       />
 
       {/* Top Navigation */}

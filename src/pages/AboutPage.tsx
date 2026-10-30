@@ -51,7 +51,7 @@ export const AboutPage: React.FC<AboutPageProps> = ({ openLeadModal }) => {
             <div className="relative group">
               <div className="w-56 h-72 sm:w-64 sm:h-80 rounded-3xl overflow-hidden border-2 border-[#00B4D8] shadow-xl shadow-cyan-500/15 bg-slate-100">
                 <img 
-                  src="/ragual.png" 
+                  src="./ragual.png" 
                   alt="A. Raghul - Founder & Growth Consultant" 
                   className="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-500" 
                 />

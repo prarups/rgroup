@@ -27,15 +27,8 @@ interface HomePageProps {
   openLeadModal: () => void;
 }
 
-export const HomePage: React.FC<HomePageProps> = ({ setCurrentPage, openLeadModal }) => {
-  useScrollReveal();
-
-  const navigateTo = (page: string) => {
-    setCurrentPage(page);
-    window.scrollTo({ top: 0, behavior: 'smooth' });
-  };
-
-  // Powerful continuous motion typewriter loop
+// Isolated Typewriter component to prevent re-rendering the entire HomePage every 30-55ms
+const TypewriterBanner: React.FC = () => {
   const powerfulMessages = [
     "WE SOLVE YOUR LEAD GENERATION PROBLEM.",
     "HIGH-INTENT CUSTOMERS DELIVERED DIRECTLY TO YOUR WHATSAPP.",
@@ -71,13 +64,36 @@ export const HomePage: React.FC<HomePageProps> = ({ setCurrentPage, openLeadModa
     return () => clearTimeout(timer);
   }, [displayText, isDeleting, msgIndex]);
 
+  return (
+    <div className="w-full max-w-3xl mx-auto text-center mb-6 sm:mb-8">
+      <div className="inline-flex items-center justify-center max-w-full px-4 py-2 sm:px-6 sm:py-2.5 rounded-full bg-[#0A122E]/85 backdrop-blur-xl border border-cyan-400/30 shadow-lg shadow-cyan-500/10">
+        <span className="w-2 h-2 rounded-full bg-emerald-400 animate-ping mr-2.5 flex-shrink-0" />
+        <div className="text-xs sm:text-sm md:text-base font-extrabold tracking-wide text-white drop-shadow-sm flex items-center justify-center">
+          <span className="text-transparent bg-clip-text bg-gradient-to-r from-cyan-300 via-sky-200 to-emerald-300">
+            {displayText}
+          </span>
+          <span className="inline-block w-[2.5px] h-3.5 sm:h-4 bg-[#00D4FF] ml-1.5 animate-pulse rounded-full" />
+        </div>
+      </div>
+    </div>
+  );
+};
+
+export const HomePage: React.FC<HomePageProps> = ({ setCurrentPage, openLeadModal }) => {
+  useScrollReveal();
+
+  const navigateTo = (page: string) => {
+    setCurrentPage(page);
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  };
+
   const services = [
     {
       icon: Megaphone,
       title: "Social Media Paid Advertising",
       desc: "Strategic Facebook & Instagram advertising campaigns designed to reach your potential customers.",
       badge: "Meta Verified",
-      image: "/meta-ads.jpg",
+      image: "./meta-ads.jpg",
       tag: "Facebook & Instagram Ads"
     },
     {
@@ -156,17 +172,7 @@ export const HomePage: React.FC<HomePageProps> = ({ setCurrentPage, openLeadModa
       <section className="relative pt-3 sm:pt-6 pb-10 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto z-10">
         
         {/* Continuous Motion Typewriter Message Directly Below Navbar */}
-        <div className="w-full max-w-3xl mx-auto text-center mb-6 sm:mb-8">
-          <div className="inline-flex items-center justify-center max-w-full px-4 py-2 sm:px-6 sm:py-2.5 rounded-full bg-[#0A122E]/85 backdrop-blur-xl border border-cyan-400/30 shadow-lg shadow-cyan-500/10">
-            <span className="w-2 h-2 rounded-full bg-emerald-400 animate-ping mr-2.5 flex-shrink-0" />
-            <div className="text-xs sm:text-sm md:text-base font-extrabold tracking-wide text-white drop-shadow-sm flex items-center justify-center">
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-cyan-300 via-sky-200 to-emerald-300">
-                {displayText}
-              </span>
-              <span className="inline-block w-[2.5px] h-3.5 sm:h-4 bg-[#00D4FF] ml-1.5 animate-pulse rounded-full" />
-            </div>
-          </div>
-        </div>
+        <TypewriterBanner />
 
         {/* HERO GRID: LEFT = Raghul Photo with Cyber Cyan & Sapphire Frame, RIGHT = Luxury Message Card */}
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-8 items-center">
@@ -178,8 +184,9 @@ export const HomePage: React.FC<HomePageProps> = ({ setCurrentPage, openLeadModa
               <div className="relative p-1 rounded-3xl bg-gradient-to-b from-cyan-400 via-blue-500/70 to-[#0A122E] shadow-2xl shadow-cyan-500/25 ring-1 ring-cyan-400/30">
                 <div className="relative rounded-[22px] overflow-hidden bg-slate-950 aspect-[4/5] w-full">
                   <img 
-                    src="/ragual.png" 
+                    src="./ragual.png" 
                     alt="A. Raghul - Founder & Growth Consultant" 
+                    loading="eager"
                     className="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-500" 
                   />
                   

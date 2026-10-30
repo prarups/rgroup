@@ -200,7 +200,7 @@ export const ContactPage: React.FC = () => {
             <div className="flex items-center space-x-3.5 pb-4 border-b border-slate-200/90">
               <div className="relative flex-shrink-0">
                 <img 
-                  src="/ragual.png" 
+                  src="./ragual.png" 
                   alt="A. Raghul" 
                   className="w-14 h-16 rounded-xl object-cover object-top border-2 border-[#00B4D8] shadow-md shadow-cyan-500/20"
                 />

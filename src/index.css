@@ -9,11 +9,6 @@
   
   body {
     background-color: #F8FAFC;
-    background-image: url('/backgroud.png');
-    background-size: cover;
-    background-position: center top;
-    background-repeat: no-repeat;
-    background-attachment: fixed;
     color: #0F172A;
     overflow-x: hidden;
   }

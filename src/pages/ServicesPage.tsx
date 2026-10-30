@@ -28,7 +28,7 @@ export const ServicesPage: React.FC<ServicesPageProps> = ({ openLeadModal }) => 
       icon: Megaphone,
       title: "Social Media Paid Advertising",
       subtitle: "Strategic Facebook & Instagram Advertising Campaigns",
-      image: "/meta-ads.jpg",
+      image: "./meta-ads.jpg",
       description: "We design, deploy, and continuously optimize high-converting Meta advertising campaigns. Every ad dollar is backed by thorough audience research and rapid creative testing to ensure maximum ROAS.",
       deliverables: [
         "Complete Meta Business Manager & Pixel integration",

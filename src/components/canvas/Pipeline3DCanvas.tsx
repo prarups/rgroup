@@ -99,10 +99,18 @@ export const Pipeline3DCanvas: React.FC = () => {
     window.addEventListener('resize', handleResize);
 
     let animationId: number;
+    let isVisible = true;
     const clock = new THREE.Clock();
+
+    const observer = new IntersectionObserver(([entry]) => {
+      isVisible = entry.isIntersecting;
+    }, { threshold: 0.05 });
+    observer.observe(container);
 
     const animate = () => {
       animationId = requestAnimationFrame(animate);
+      if (!isVisible) return; // Skip GPU render when off-screen
+
       const time = clock.getElapsedTime();
 
       // Rotate whole group dynamically
@@ -123,6 +131,7 @@ export const Pipeline3DCanvas: React.FC = () => {
     animate();
 
     return () => {
+      observer.disconnect();
       window.removeEventListener('scroll', handleScroll);
       window.removeEventListener('resize', handleResize);
       cancelAnimationFrame(animationId);
@@ -134,6 +143,14 @@ export const Pipeline3DCanvas: React.FC = () => {
       tubeMat.dispose();
       beaconGeo.dispose();
       beaconMat.dispose();
+      nodes.forEach(node => {
+        node.geometry.dispose();
+        if (Array.isArray(node.material)) {
+          node.material.forEach(m => m.dispose());
+        } else {
+          node.material.dispose();
+        }
+      });
     };
   }, []);
 
